@@ -41,6 +41,13 @@ body {
 }
 
 
+.engima{
+    background-color: black;
+}
+
+.engima:hover .card-back{
+    transform: rotateY(180deg);
+}
 
 
 .card{
@@ -57,6 +64,7 @@ body {
     transition: transform .2s ease-in-out;
 }
 
+/*
 .card.visible .card-back{
     transform: rotateY(180deg);
 }
@@ -78,7 +86,7 @@ body {
     transform: rotatey(180deg);
 }
 
-
+*/
 
 img{
     width: 125px;
