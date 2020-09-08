@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+/*The body will take 100% of the available height space */
+body {
+    background-image: url("../assets/images/green-back.jpg");
+    background-repeat: repeat;
+    margin: 0;
+ }
+
+
+
+.page-title{
+    color:silver;
+    font-family:'Aclonica', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
+    margin-top: 50px;
+}
+
+
+.game-info{
+    color:silver;
+    font-size: 2em;
+    font-family:'Aclonica', sans-serif;
+}
+
+.game-info-container{
+    
+}
+
+
+
+.game-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+
+
+
+.card{
+    position: relative;
+    background-color: inherit;
+    height: 175px;
+    width: 125px;
+    transform: scale(1);
+    
+}
+
+.card:hover{
+    transform: scale(.97);
+    transition: transform .2s ease-in-out;
+}
+
+.card.visible .card-back{
+    transform: rotateY(180deg);
+}
+
+.card.visible .card-front{
+    transform: rotateY(0);
+}
+
+.card-face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 500ms ease-in-out;
+    
+}
+
+.card-front{
+    transform: rotatey(180deg);
+}
+
+
+
+img{
+    width: 125px;
+    height: 175px;
+}
+
+.overlay-text{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+    color: #ffffff;
+    font-family:'Aclonica', sans-serif;
+}
+
+.overlay-text.visible{
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow{
+    from{
+        background-color: rgba(0, 0, 0, 0);
+        font-size: 0;
+    }
+    to{
+        background-color: rgba(0, 0, 0, .8);
+        font-size: 10em;
+    }
+
+}
+
+
+@media(max-width: 600px){
+    .game-container{
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .game-info-container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+    
+
+
+
+
