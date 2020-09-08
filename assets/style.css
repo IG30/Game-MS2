@@ -53,9 +53,11 @@ body {
 
 .card{
     position: relative;
-    height: 175px;
+    height: 125px;
     width: 125px;
+    border-radius: 50%;
     transform: scale(1);
+    background-color: transparent;
     
 }
 
@@ -66,7 +68,8 @@ body {
 
 img{
     width: 125px;
-    height: 175px;
+    height: 125px;
+    border-radius: 50%;
 }
 
 .overlay-text{
