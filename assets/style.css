@@ -79,7 +79,7 @@ body {
 
 
 
-.card{
+.basketballs{
     position: relative;
     height: 125px;
     width: 125px;
@@ -89,7 +89,7 @@ body {
     
 }
 
-.card:hover{
+.basketballs:hover{
     transform: scale(.97);
     transition: transform .2s ease-in-out;
 }
