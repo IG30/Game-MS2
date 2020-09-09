@@ -51,6 +51,7 @@ body {
     height: 195px;
     bottom:0;
     right: 0;
+    margin-right: 5px;
     
 }
 
@@ -67,9 +68,7 @@ body {
 /*rememeber when adding the effect for the scale to only moving down 15px*/
 
 
-
 .game-info-container{
-     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
 }
@@ -138,11 +137,32 @@ img{
 }
 
 
-.check-container{
+.basket-check-container{
     width: 100%;
-    height: 500px;
+    height: 150px;
     margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid black;
 }
+
+/*-------This code control the check buttons at the top of the page*/
+
+.game-info-container, .answer-check-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+.basket{
+    background-image: url("../assets/images/basket.png");
+    background-color: silver;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+}
+
 
 
 
