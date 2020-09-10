@@ -1,6 +1,7 @@
 class nameOfTheGame {
   constructor(basketballs) {
     this.basketballsArray = basketballs;
+    this.groupOfBalls = document.querySelector (".basketballs")
   }
 
   startGame() {
@@ -8,14 +9,33 @@ class nameOfTheGame {
   }
 
   shufflebasketballs() {
+
+    function shuffleBalls(){
     for (let i = this.basketballsArray.length - 1; i > 0; i--) {
-      let randomIndex = Math.floor(Math.random() * (i + 1));
-      console.log(randomIndex);
-      this.basketballsArray[randomIndex].style.order = i;
-      //this.basketballsArray[i].style.order = randomIndex;
-    }
-  }
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = this.basketballsArray[i];
+      this.basketballsArray[i] = this.basketballsArray[j];
+      this.basketballsArray[j] = temp;
+    };
+       return this.basketballsArray;
 }
+    
+       let groupBalls = this.groupOfBalls;
+      function moveBalls(){
+          let shuffleDivs = shuffleBalls();
+          for (var i= 0; i < shuffleDivs.length; i++){
+          [].forEach.call(shuffleDivs, function(item){
+          groupBalls.appendChild(item);
+      });
+      };
+   };
+
+   window.onload = moveBalls();
+ };
+
+}
+
+ 
 
 
 
@@ -45,7 +65,9 @@ function ready() {
         //code to start game go here
         game.startGame();
     });
+    
   });
 }
 
 ready();
+
