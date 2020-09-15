@@ -1,39 +1,53 @@
+//start the game
+//shuffle the balls
+//star time
+//dragable componenets. Make the balls dragable and create container when to drag them.
+//count how many times the user has used the scale
+//check for the heavy ball when using scale
+//set animation when the heavy ball is found in one side of the scale.
+//Set basket to check for the heavy ball.
+//Set the basket to only be used one.
+//
+
+
+
 class nameOfTheGame {
   constructor(basketballs) {
     this.basketballsArray = basketballs;
-    this.groupOfBalls = document.querySelector (".basketballs")
   }
 
   startGame() {
     this.shufflebasketballs();
+    this.shufflegroup();
   }
 
   shufflebasketballs() {
+      // Fisher-Yates (aka Knuth) Shuffle
+    var currentIndex = this.basketballsArray.length, temporaryValue, randomIndex;
 
-    function shuffleBalls(){
-    for (let i = this.basketballsArray.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      let temp = this.basketballsArray[i];
-      this.basketballsArray[i] = this.basketballsArray[j];
-      this.basketballsArray[j] = temp;
-    };
-       return this.basketballsArray;
-}
-    
-       let groupBalls = this.groupOfBalls;
-      function moveBalls(){
-          let shuffleDivs = shuffleBalls();
-          for (var i= 0; i < shuffleDivs.length; i++){
-          [].forEach.call(shuffleDivs, function(item){
-          groupBalls.appendChild(item);
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = this.basketballsArray[currentIndex];
+    this.basketballsArray[currentIndex] = this.basketballsArray[randomIndex];
+    this.basketballsArray[randomIndex] = temporaryValue;
+  }
+  return this.basketballsArray;
+  }
+      // group of all balls in game
+
+ shufflegroup(){
+    const groupBalls = document.querySelector(".balls-container");
+   var shuffleBalls = this.basketballsArray;
+   for (var i= 0; i < shuffleBalls.length; i++){
+      [].forEach.call(shuffleBalls, function(item){
+         groupBalls.appendChild(item);
       });
-      };
-   };
-
-   window.onload = moveBalls();
- };
-
+   }
 }
+ };
+ 
+
 
  
 
@@ -55,6 +69,11 @@ function ready() {
     });
 
     new Sortable(ballsGroup, {
+    group: 'shared', // set both lists to same group
+    animation: 150
+    });
+
+    new Sortable(basket, {
     group: 'shared', // set both lists to same group
     animation: 150
     });
