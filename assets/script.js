@@ -12,13 +12,22 @@
 
 
 class nameOfTheGame {
-  constructor(basketballs) {
+  constructor(totalTime, basketballs) {
     this.basketballsArray = basketballs;
+    this.totalTime = totalTime;
+    this.timeRemaining = totalTime;
+    this.timer = document.getElementById('time-remaining');
+    this.countDown = this.startCountDown();
   }
 
   startGame() {
     this.shufflebasketballs();
-    this.shufflegroup();
+    setTimeout(() => {
+            this.shufflegroup();
+            this.countDown = this.startCountDown();
+        }, 500);
+    this.timeRemaining = this.totalTime;
+    this.timer.innerText = this.timeRemaining;
   }
 
   shufflebasketballs() {
@@ -45,7 +54,26 @@ class nameOfTheGame {
       });
    }
 }
+
+startCountDown() {
+        return setInterval(() => {
+            this.timeRemaining--;
+            this.timer.innerText = this.timeRemaining;
+            if(this.timeRemaining === 0)
+                this.gameOver();
+        }, 1000);
+    }
+
+
+
+
+gameOver(){
+    clearInterval(this.countDown);
+    document.getElementById('game-over-text').classList.add('visible');
+ }
  };
+
+ 
  
 
 
@@ -56,37 +84,49 @@ class nameOfTheGame {
 function ready() {
   let overlays = Array.from(document.getElementsByClassName("overlay-text"));
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
-  let game = new nameOfTheGame(basketballs);
+  let game = new nameOfTheGame(5, basketballs);
 
   new Sortable(leftSide, {
     group: 'shared', // set both lists to same group
-    animation: 150
+    animation: 150,
+    //ghostClass: false,
+    //sort: false
     });
 
     new Sortable(rightSide, {
         group: 'shared',
-        animation: 150
+        animation: 150,
+       // ghostClass: false,
+        //sort: false,
     });
 
     new Sortable(ballsGroup, {
     group: 'shared', // set both lists to same group
-    animation: 150
+    animation: 150,
+    //ghostClass: false,
+    //sort: false,
     });
 
     new Sortable(basket, {
     group: 'shared', // set both lists to same group
-    animation: 150
+    animation: 150,
+    //ghostClass: false,
+    //sort: false,
     });
 
   overlays.forEach((overlay) => {
     overlay.addEventListener("click", () => {
         overlay.classList.remove("visible");
-        //code to start game go here
         game.startGame();
     });
     
   });
 }
 
-ready();
 
+
+if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ready());
+} else {
+    ready();
+}
