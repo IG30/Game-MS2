@@ -17,12 +17,11 @@ class nameOfTheGame {
     this.totalTime = totalTime;
     this.timeRemaining = totalTime;
     this.timer = document.getElementById('time-remaining');
-    this.countDown = this.startCountDown();
   }
 
   startGame() {
-    this.shufflebasketballs();
     setTimeout(() => {
+            this.shufflebasketballs();
             this.shufflegroup();
             this.countDown = this.startCountDown();
         }, 500);
@@ -54,7 +53,7 @@ class nameOfTheGame {
       });
    }
 }
-
+// count down for the time
 startCountDown() {
         return setInterval(() => {
             this.timeRemaining--;
@@ -65,12 +64,13 @@ startCountDown() {
     }
 
 
-
+// overlays for game over and victory
 
 gameOver(){
     clearInterval(this.countDown);
     document.getElementById('game-over-text').classList.add('visible');
  }
+
  };
 
  
