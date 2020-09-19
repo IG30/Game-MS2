@@ -71,11 +71,11 @@ body {
 }
 
 
-.left-side.heavier:hover{
+.left-side.heavier{
    transform: translateY(100px);
 }
 
-.right-side.heavier:hover{
+.right-side.heavier{
     transform: translateY(100px);
 }
 

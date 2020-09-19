@@ -76,11 +76,26 @@ class nameOfTheGame {
 //victoryOver()
 
 
+//Check for the content in the scales.
 
 
+// button action
 checkScale(){
     const scaleCheck = document.querySelector(".scale-check");
-    console.log(scaleCheck);
+    scaleCheck.addEventListener("click", () => {
+        this.checkForHeavy();
+    });
+}
+
+
+//Check for the data attribiute in the basketballs
+checkForHeavy(){
+    const leftSide = document.querySelector(".left-side");
+    const leftSideDivs = Array.from(leftSide.children);
+    const rightSide = document.querySelector(".right-side");
+    const rightSideDivs = Array.from(rightSide.children);
+    console.log(leftSideDivs, rightSideDivs);
+    
 }
 // close the object
 };
