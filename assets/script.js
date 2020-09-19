@@ -84,7 +84,7 @@ gameOver(){
 function ready() {
   let overlays = Array.from(document.getElementsByClassName("overlay-text"));
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
-  let game = new nameOfTheGame(5, basketballs);
+  let game = new nameOfTheGame(180, basketballs);
 
   new Sortable(leftSide, {
     group: 'shared', // set both lists to same group

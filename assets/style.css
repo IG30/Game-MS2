@@ -31,9 +31,8 @@ body {
     grid-template-columns: repeat(3, auto);
     grid-gap: 10px;
     margin: 50px;
-    justify-content: center;
 }
-
+/*
 .scale-container{
     align-items: center;
     position: relative;
@@ -41,21 +40,30 @@ body {
     grid-template-columns: repeat(2, auto);
     grid-gap: 10px;
 
-}
+}*/
 
 .left-side{
     background-color: black;
     border-radius: 0 0 20px 20px;
     width: 225px;
-    height: 195px;
+    margin-right: 10px;
+    height: 300px;
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden;
+    align-content: center;
 }
 
 .right-side{
     background-color: black;
     border-radius: 0 0 20px 20px;
-    width: 225px;
-    height: 195px;
-    
+    width: 225px; 
+    margin-left: 10px; 
+    height: 300px;
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden; 
+    align-content: center;
 }
 
 /*rememeber when adding the effect for the scale to only moving down 15px*/
