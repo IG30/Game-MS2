@@ -53,6 +53,7 @@ body {
     flex-flow: column wrap;
     overflow: hidden;
     align-content: center;
+    transition: transform 1000ms ease-in-out;
 }
 
 .right-side{
@@ -66,9 +67,17 @@ body {
     flex-flow: column wrap;
     overflow: hidden; 
     align-content: center;
+    transition: transform 1000ms ease-in-out;
 }
 
-/*rememeber when adding the effect for the scale to only moving down 15px*/
+
+.left-side.heavier:hover{
+   transform: translateY(100px);
+}
+
+.right-side.heavier:hover{
+    transform: translateY(100px);
+}
 
 
 .game-info-container{
