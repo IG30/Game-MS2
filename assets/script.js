@@ -27,6 +27,7 @@ class nameOfTheGame {
         }, 500);
     this.timeRemaining = this.totalTime;
     this.timer.innerText = this.timeRemaining;
+    this.checkScale();
   }
 
   shufflebasketballs() {
@@ -54,7 +55,7 @@ class nameOfTheGame {
    }
 }
 // count down for the time
-startCountDown() {
+ startCountDown() {
         return setInterval(() => {
             this.timeRemaining--;
             this.timer.innerText = this.timeRemaining;
@@ -66,12 +67,25 @@ startCountDown() {
 
 // overlays for game over and victory
 
-gameOver(){
+ gameOver(){
     clearInterval(this.countDown);
     document.getElementById('game-over-text').classList.add('visible');
  }
 
- };
+
+//victoryOver()
+
+
+
+
+checkScale(){
+    const scaleCheck = document.querySelector(".scale-check");
+    console.log(scaleCheck);
+}
+// close the object
+};
+
+
 
  
  
@@ -87,31 +101,22 @@ function ready() {
   let game = new nameOfTheGame(180, basketballs);
 
   new Sortable(leftSide, {
-    group: 'shared', // set both lists to same group
+    group: 'shared', // set all lists to same group
     animation: 150,
-    //ghostClass: false,
-    //sort: false
     });
 
     new Sortable(rightSide, {
         group: 'shared',
         animation: 150,
-       // ghostClass: false,
-        //sort: false,
     });
 
     new Sortable(ballsGroup, {
-    group: 'shared', // set both lists to same group
-    animation: 150,
-    //ghostClass: false,
-    //sort: false,
+    group: 'shared', 
     });
 
     new Sortable(basket, {
-    group: 'shared', // set both lists to same group
+    group: 'shared', 
     animation: 150,
-    //ghostClass: false,
-    //sort: false,
     });
 
   overlays.forEach((overlay) => {
