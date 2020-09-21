@@ -77,6 +77,7 @@ class nameOfTheGame {
 
 
 victoryOver(){
+    clearInterval(this.countDown);
     document.getElementById('victory-text').classList.add('visible');
 }
 
