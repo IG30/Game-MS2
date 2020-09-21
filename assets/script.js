@@ -28,6 +28,7 @@ class nameOfTheGame {
     this.timeRemaining = this.totalTime;
     this.timer.innerText = this.timeRemaining;
     this.checkScale();
+    this.checkBasketButton();
   }
 
   shufflebasketballs() {
@@ -109,7 +110,28 @@ checkForHeavy(){
     });
   
 }
+
+checkBasketButton(){
+    const basketButton = document.querySelector(".basket");
+    basketButton.addEventListener('click', () =>{
+        this.checkResult();
+    });
+}
+
+checkResult(){
+    const basket = document.querySelector("#basket");
+    const basketDivs = Array.from(basket.children);
     
+    basketDivs.forEach((item) => {
+        if(item.dataset.weight === 'heavy'){
+            console.log("hello")
+        } else {
+            console.log("Bye")
+        }
+    }); 
+    
+}
+
 
 };
 // close the objecy
