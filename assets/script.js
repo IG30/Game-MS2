@@ -94,12 +94,25 @@ checkForHeavy(){
     const leftSideDivs = Array.from(leftSide.children);
     const rightSide = document.querySelector(".right-side");
     const rightSideDivs = Array.from(rightSide.children);
-    console.log(leftSideDivs, rightSideDivs);
-    
-}
-// close the object
-};
+  
+    leftSideDivs.forEach((item) => {
+    if(item.dataset.weight === 'heavy'){
+        document.querySelector('.left-side').classList.add('heavier');
+    }
+});
 
+    rightSideDivs.forEach((item) => {
+        if(item.dataset.weight === 'heavy'){
+            document.querySelector('.right-side').classList.add('heavier');
+
+        }
+    });
+  
+}
+    
+
+};
+// close the objecy
 
 
  

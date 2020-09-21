@@ -32,15 +32,6 @@ body {
     grid-gap: 10px;
     margin: 50px;
 }
-/*
-.scale-container{
-    align-items: center;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 10px;
-
-}*/
 
 .left-side{
     background: url("../assets/images/plate.png");
