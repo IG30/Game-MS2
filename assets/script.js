@@ -29,6 +29,8 @@ class nameOfTheGame {
     this.timer.innerText = this.timeRemaining;
     this.checkScale();
     this.checkBasketButton();
+    this.reset();
+    this.resetScale();
   }
 
   shufflebasketballs() {
@@ -74,7 +76,9 @@ class nameOfTheGame {
  }
 
 
-//victoryOver()
+victoryOver(){
+    document.getElementById('victory-text').classList.add('visible');
+}
 
 
 //Check for the content in the scales.
@@ -124,14 +128,27 @@ checkResult(){
     
     basketDivs.forEach((item) => {
         if(item.dataset.weight === 'heavy'){
-            console.log("hello")
+            // victory
+            this.victoryOver()
         } else {
+            // do nothing
             console.log("Bye")
         }
     }); 
     
 }
 
+reset(){
+    const resetButton = document.querySelector(".reset-scale");
+    resetButton.addEventListener('click', () =>{
+        this.resetScale()
+    });
+}
+
+resetScale(){
+    document.querySelector('.left-side').classList.remove('heavier');
+    document.querySelector('.right-side').classList.remove('heavier');
+}
 
 };
 // close the objecy
