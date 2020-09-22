@@ -88,8 +88,14 @@ victoryOver(){
 // button action
 checkScale(){
     const scaleCheck = document.querySelector(".scale-check");
+    let scaleUse = 0;
     scaleCheck.addEventListener("click", () => {
+        scaleUse++;
+        if (scaleUse > 2){
+            alert('The scale has been already used twice!!');
+        }else{
         this.checkForHeavy();
+        }
     });
 }
 
@@ -118,8 +124,14 @@ checkForHeavy(){
 
 checkBasketButton(){
     const basketButton = document.querySelector(".basket");
+    let checkHeavyBall = 0;
     basketButton.addEventListener('click', () =>{
+        checkHeavyBall++;
+        if (checkHeavyBall > 1){
+            alert('You can only check once');
+        }else{
         this.checkResult();
+        }
     });
 }
 
@@ -132,18 +144,16 @@ checkResult(){
     console.log(basketDivs);
 
 
-   // basketDivs.forEach((item) => {
         if (basketDivs.length === 1){
             if (basketDivs[0].dataset.weight === 'heavy'){
                 this.victoryOver();
             }else {
-                alert('this is light');
+                alert('This is light!');
             }
         }else {
-            alert('Only one basketball can be check')
+            alert('Only one basketball can be check!!')
          
         }
-   // });
 }
     
 
