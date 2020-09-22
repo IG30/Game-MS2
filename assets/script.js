@@ -123,21 +123,27 @@ checkBasketButton(){
     });
 }
 
+  
+
+
 checkResult(){
     const basket = document.querySelector("#basket");
     const basketDivs = Array.from(basket.children);
-    
+
+
     basketDivs.forEach((item) => {
-        if(item.dataset.weight === 'heavy'){
-            // victory
-            this.victoryOver()
-        } else {
-            // do nothing
-            console.log("Bye")
+        if (basketDivs.length === 1){
+            if (item.dataset.weight === 'heavy'){
+                this.victoryOver();
+            }else {
+                alert('this is light');
+            }
+        }else {
+            alert('Only one basketball can be check')
         }
-    }); 
-    
+    });
 }
+    
 
 reset(){
     const resetButton = document.querySelector(".reset-scale");
@@ -180,6 +186,11 @@ function ready() {
 
     new Sortable(ballsGroup, {
     group: 'shared', 
+    });
+
+    new Sortable(discarded, {
+    group: 'shared', 
+    animation: 150,
     });
 
     new Sortable(basket, {

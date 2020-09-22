@@ -185,12 +185,16 @@ img{
 }
 
 
-.discarded-basketballs{
+#discarded{
     background-image: url("../assets/images/bin.png");
     background-size: contain;
     background-repeat: no-repeat;
     width: 150px;
     height: 150px;
+     display: flex;
+    flex-flow: column wrap;
+    overflow: hidden; 
+    align-content: center;
 }
     
 
