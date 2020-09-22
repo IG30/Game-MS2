@@ -129,19 +129,21 @@ checkBasketButton(){
 checkResult(){
     const basket = document.querySelector("#basket");
     const basketDivs = Array.from(basket.children);
+    console.log(basketDivs);
 
 
-    basketDivs.forEach((item) => {
+   // basketDivs.forEach((item) => {
         if (basketDivs.length === 1){
-            if (item.dataset.weight === 'heavy'){
+            if (basketDivs[0].dataset.weight === 'heavy'){
                 this.victoryOver();
             }else {
                 alert('this is light');
             }
         }else {
             alert('Only one basketball can be check')
+         
         }
-    });
+   // });
 }
     
 
