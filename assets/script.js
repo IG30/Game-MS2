@@ -12,12 +12,15 @@
 
 
 class nameOfTheGame {
-  constructor(totalTime, basketballs) {
+  constructor(totalTime, basketballs, basketButton, scaleButton) {
     this.basketballsArray = basketballs;
     this.totalTime = totalTime;
     this.timeRemaining = totalTime;
     this.timer = document.getElementById('time-remaining');
+    this.checkHeavyBall = basketButton;
+    this.scaleUse = scaleButton;
   }
+
 
   startGame() {
     setTimeout(() => {
@@ -31,6 +34,9 @@ class nameOfTheGame {
     this.checkBasketButton();
     this.reset();
     this.resetScale();
+    this.restartGame();
+    
+    
   }
 
   shufflebasketballs() {
@@ -88,10 +94,9 @@ victoryOver(){
 // button action
 checkScale(){
     const scaleCheck = document.querySelector(".scale-check");
-    let scaleUse = 0;
     scaleCheck.addEventListener("click", () => {
-        scaleUse++;
-        if (scaleUse > 2){
+        this.scaleUse++;
+        if (this.scaleUse > 2){
             alert('The scale has been already used twice!!');
         }else{
         this.checkForHeavy();
@@ -124,10 +129,9 @@ checkForHeavy(){
 
 checkBasketButton(){
     const basketButton = document.querySelector(".basket");
-    let checkHeavyBall = 0;
     basketButton.addEventListener('click', () =>{
-        checkHeavyBall++;
-        if (checkHeavyBall > 1){
+        this.checkHeavyBall++;
+        if (this.checkHeavyBall > 1){
             alert('You can only check once');
         }else{
         this.checkResult();
@@ -141,7 +145,6 @@ checkBasketButton(){
 checkResult(){
     const basket = document.querySelector("#basket");
     const basketDivs = Array.from(basket.children);
-    console.log(basketDivs);
 
 
         if (basketDivs.length === 1){
@@ -150,9 +153,11 @@ checkResult(){
             }else {
                 alert('This is light!');
             }
+        }else if(basketDivs.length > 1) {
+            alert('Only one basketball can be check!!');
         }else {
-            alert('Only one basketball can be check!!')
-         
+            alert('The basket is empty!')
+
         }
 }
     
@@ -167,6 +172,14 @@ reset(){
 resetScale(){
     document.querySelector('.left-side').classList.remove('heavier');
     document.querySelector('.right-side').classList.remove('heavier');
+}
+
+restartGame(){
+    const restart = document.querySelector('.page-title');
+    restart.addEventListener('click', () =>{
+        document.location.reload(true)
+    });
+
 }
 
 };
@@ -184,7 +197,7 @@ resetScale(){
 function ready() {
   let overlays = Array.from(document.getElementsByClassName("overlay-text"));
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
-  let game = new nameOfTheGame(180, basketballs);
+  let game = new nameOfTheGame(180, basketballs, 0, 0);
 
   new Sortable(leftSide, {
     group: 'shared', // set all lists to same group
