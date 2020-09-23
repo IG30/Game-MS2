@@ -177,7 +177,7 @@ resetScale(){
 restartGame(){
     const restart = document.querySelector('.page-title');
     restart.addEventListener('click', () =>{
-        document.location.reload(true)
+        document.location.reload(true);
     });
 
 }
