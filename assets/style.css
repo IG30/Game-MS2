@@ -2,8 +2,7 @@
 
 /*The body will take 100% of the available height space */
 body {
-    background-image: url("../assets/images/green-back.jpg");
-    background-repeat: repeat;
+    background-color: black;
  }
 
 

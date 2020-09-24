@@ -80,13 +80,30 @@ class nameOfTheGame {
  gameOver(){
     clearInterval(this.countDown);
     document.getElementById('game-over-text').classList.add('visible');
+    function clickTostart() {
+    let gameOverOverlay = document.getElementById('game-over-text');
+      gameOverOverlay.addEventListener("click", () => {
+        document.location.reload(true);
+        
+    });
     
+  };
+    clickTostart();
  }
 
 
 victoryOver(){
     clearInterval(this.countDown);
     document.getElementById('victory-text').classList.add('visible');
+    function clickTostart() {
+    let victoryOverlay = document.getElementById('victory-text');
+      victoryOverlay.addEventListener("click", () => {
+        document.location.reload(true);
+        
+    });
+    
+  };
+  clickTostart();
 }
 
 
@@ -225,9 +242,7 @@ function ready() {
     });
 
     clickTostart();
-
-
-
+    
 function clickTostart() {
     let firtsOverlay = document.getElementById('start-overlay');
       firtsOverlay.addEventListener("click", () => {
@@ -245,4 +260,5 @@ if(document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready());
 } else {
     ready();
+    
 }
