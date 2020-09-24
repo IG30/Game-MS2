@@ -166,6 +166,10 @@ img{
     width: 150px;
     height: 150px;
     border-radius: 30%;
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden; 
+    align-content: center;
 
 }
 
@@ -192,7 +196,7 @@ img{
     background-repeat: no-repeat;
     width: 150px;
     height: 150px;
-     display: flex;
+    display: flex;
     flex-flow: column wrap;
     overflow: hidden; 
     align-content: center;

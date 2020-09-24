@@ -12,7 +12,7 @@
 
 
 class nameOfTheGame {
-  constructor(totalTime, basketballs, basketButton, scaleButton) {
+  constructor(totalTime, basketballs, basketButton, scaleButton,) {
     this.basketballsArray = basketballs;
     this.totalTime = totalTime;
     this.timeRemaining = totalTime;
@@ -36,8 +36,9 @@ class nameOfTheGame {
     this.resetScale();
     this.restartGame();
     
-    
   }
+
+
 
   shufflebasketballs() {
       // Fisher-Yates (aka Knuth) Shuffle
@@ -79,6 +80,7 @@ class nameOfTheGame {
  gameOver(){
     clearInterval(this.countDown);
     document.getElementById('game-over-text').classList.add('visible');
+    
  }
 
 
@@ -197,7 +199,7 @@ restartGame(){
 function ready() {
   let overlays = Array.from(document.getElementsByClassName("overlay-text"));
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
-  let game = new nameOfTheGame(180, basketballs, 0, 0);
+  let game = new nameOfTheGame(180, basketballs, 0, 0,);
 
   new Sortable(leftSide, {
     group: 'shared', // set all lists to same group
@@ -223,13 +225,17 @@ function ready() {
     animation: 150,
     });
 
-  overlays.forEach((overlay) => {
-    overlay.addEventListener("click", () => {
-        overlay.classList.remove("visible");
+    
+    overlays.forEach((overlay) => {
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove('visible');
         game.startGame();
+        
     });
     
   });
+
+
 }
 
 
