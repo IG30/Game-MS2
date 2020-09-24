@@ -197,7 +197,6 @@ restartGame(){
 
 
 function ready() {
-  let overlays = Array.from(document.getElementsByClassName("overlay-text"));
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
   let game = new nameOfTheGame(180, basketballs, 0, 0,);
 
@@ -225,19 +224,21 @@ function ready() {
     animation: 150,
     });
 
-    
-    overlays.forEach((overlay) => {
-      overlay.addEventListener("click", () => {
-        overlay.classList.remove('visible');
+    clickTostart();
+
+
+
+function clickTostart() {
+    let firtsOverlay = document.getElementById('start-overlay');
+      firtsOverlay.addEventListener("click", () => {
+        firtsOverlay.classList.remove('visible');
         game.startGame();
         
     });
     
-  });
-
+  };
 
 }
-
 
 
 if(document.readyState === 'loading') {
