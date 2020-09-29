@@ -142,6 +142,42 @@ img {
   display: flex;
 }
 
+
+.btn{
+    background-color: var(--background-color);
+    font-family: "Aclonica", sans-serif;
+    position: relative;
+    color:black;    
+
+
+    --background-color: #FF8C00;
+    --border-size: 2px;
+
+}
+
+.btn.btn-border-pop::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    border: var(--border-size) solid var(--background-color);
+    transition: top, right, left, bottom, 100ms, ease-in-out;
+}
+
+.btn.btn-border-pop:hover::before,
+.btn.btn-border-pop:focus::before{
+    top: calc(var(--border-size) * -3);
+    right: calc(var(--border-size) * -3);
+    left: calc(var(--border-size) * -3);
+    bottom: calc(var(--border-size) * -3);
+}
+
+
+
+
 #basket {
   background-image: url("../images/basket.png");
   background-color: silver;
@@ -155,15 +191,16 @@ img {
 }
 
 .scale-check {
-  background-image: url("../images/scale2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  
   height: 100px;
   width: 100px;
   margin: 10px;
 }
 
 .reset-scale {
+  background-image: url("../images/scale2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100px;
   width: 100px;
   margin: 10px;
