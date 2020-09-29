@@ -18,11 +18,14 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Memory Game</title>
   </head>
   <body>
     <h1 class="page-title">Game title</h1>
+          <div class="game-info">
+            Time: <span id="time-remaining"> 180 </span>
+          </div>
     <div id="start-overlay" class="overlay-text visible">
       Rules of the game. Click to Start the Game!  
     </div>
@@ -35,22 +38,19 @@
       <span class="overlay-text-small">Click To Start the Game!</span>
     </div>
 
-    <div class="container basket-check-container">
+    <div class="container control-panel-container">
       <div class="row">
-        <div class="col-2 game-info-container">
-          <div class="game-info">
-            Time: <span id="time-remaining"> 180 </span>
-          </div>
-        </div>
-        <div class="col answer-check-container">
+        <div class="col control-panel">
         <button type="button" class="btn btn-warning btn-lg scale-check">
           </button>
           <button type="button" class="btn btn-warning btn-lg reset-scale">
             Reset Scale
           </button>
-          <button type="button" class="btn btn-warning btn-lg basket">
+          <button type="button" class="btn btn-warning btn-lg check-answer">
             Check answer
           </button>
+        </div>
+      <div class="col check-discard-container">  
           <div id="basket"></div>
           <div id="discarded">
           </div>
@@ -64,31 +64,31 @@
         <div id="rightSide" class="col-4 right-side"></div>
         <div id="ballsGroup" class="col balls-container">
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs heavy" data-weight="heavy">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
           <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" />
+            <img src="assets/images/ball.png" alt="basketball" />
           </div>
         </div>
       </div>
@@ -96,6 +96,6 @@
     
     <!-- Sortable.js -->
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-    <script src="assets/script.js" async></script>
+    <script src="assets/js/script.js" async></script>
   </body>
 </html>

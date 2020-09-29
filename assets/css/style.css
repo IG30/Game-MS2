@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+
+/*The body will take 100% of the available height space */
+body {
+  background-color: black;
+}
+/* Title and timer  */
+.page-title {
+  color: silver;
+  font-family: "Aclonica", sans-serif;
+  font-weight: normal;
+  text-align: center;
+  font-size: 6em;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.game-info {
+  color: silver;
+  font-size: 2.5em;
+  font-family: "Aclonica", sans-serif;
+  text-align: center;
+}
+
+
+/* This Basketballs group and Scale sides*/
+
+
+.balls-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
+  margin: 50px;
+}
+
+.left-side {
+  background: url("../images/plate.png");
+  background-size: cover;
+  border-radius: 0 0 20px 20px;
+  width: 225px;
+  margin-right: 10px;
+  height: 300px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: hidden;
+  align-content: center;
+  transition: transform 1000ms ease-in-out;
+}
+
+.right-side {
+  background: url("../images/plate.png");
+  background-size: cover;
+  border-radius: 0 0 20px 20px;
+  width: 225px;
+  margin-left: 10px;
+  height: 300px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: hidden;
+  align-content: center;
+  transition: transform 1000ms ease-in-out;
+}
+
+.left-side.heavier {
+  transform: translateY(100px);
+}
+
+.right-side.heavier {
+  transform: translateY(100px);
+}
+
+
+
+.basketballs {
+  position: relative;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  transform: scale(1);
+  background-color: transparent;
+}
+
+.basketballs:hover {
+  transform: scale(0.97);
+  transition: transform 0.2s ease-in-out;
+}
+
+img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+}
+
+
+/* This is the style for the overlays*/
+
+.overlay-text {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+  color: #ffffff;
+  font-family: "Aclonica", sans-serif;
+}
+
+.overlay-text.visible {
+  display: flex;
+  flex-direction: column;
+  animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 10em;
+  }
+}
+
+
+/*This is the style for the Control panel under the time. */
+
+.control-panel-container {
+  width: 100%;
+  height: 150px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+
+.control-panel {
+  display: flex;
+}
+
+#basket {
+  background-image: url("../images/basket.png");
+  background-color: silver;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: hidden;
+  align-content: center;
+}
+
+.scale-check {
+  background-image: url("../images/scale2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.reset-scale {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+
+.check-discard-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.check-answer{
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+#discarded {
+  background-image: url("../images/bin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-flow: column wrap;
+  overflow: hidden;
+  align-content: center;
+}
