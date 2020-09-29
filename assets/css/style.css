@@ -175,6 +175,11 @@ img {
     bottom: calc(var(--border-size) * -3);
 }
 
+div.tooltip-inner{
+    background-color: silver;
+    font-family: "Aclonica", sans-serif;
+    color:black;
+}
 
 
 
@@ -191,7 +196,7 @@ img {
 }
 
 .scale-check {
-  
+  font-size: 3.5em;
   height: 100px;
   width: 100px;
   margin: 10px;
@@ -214,6 +219,7 @@ img {
 
 
 .check-answer{
+  font-size: 3.5em;
   height: 100px;
   width: 100px;
   margin: 10px;

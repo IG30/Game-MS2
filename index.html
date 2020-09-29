@@ -19,15 +19,14 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Memory Game</title>
+    <title>Riddle-Find-The-heavier-Ball</title>
   </head>
   <body>
-    <h1 class="page-title">Game title</h1>
-          <div class="game-info">
-            Time: <span id="time-remaining"> 180 </span>
-          </div>
+    <h1 class="page-title" data-toggle="tooltip" data-placement="right"
+            title="Click the title to start the game">Find The Heavier Ball</h1>
+    <div class="game-info">Time: <span id="time-remaining"> 180 </span></div>
     <div id="start-overlay" class="overlay-text visible">
-      Rules of the game. Click to Start the Game!  
+      Rules of the game. Click to Start the Game!
     </div>
     <div id="game-over-text" class="overlay-text">
       GAME OVER!
@@ -41,19 +40,26 @@
     <div class="container control-panel-container">
       <div class="row">
         <div class="col control-panel">
-        <button type="button" class="btn btn-border-pop scale-check">
-        Use the Scale
+          <button
+            type="button"
+            class="btn btn-border-pop scale-check"
+            data-toggle="tooltip"
+            title="Click on the S to use the scale"
+          >
+            S
           </button>
-          <button type="button" class="btn btn-border-pop reset-scale">
-          </button>
-          <button type="button" class="btn btn-border-pop check-answer">
-            Check your answer
+          <button type="button" class="btn btn-border-pop reset-scale" data-toggle="tooltip"
+            title="Click on it to equalize the scale"></button>
+          <button type="button" class="btn btn-border-pop check-answer" data-toggle="tooltip"
+            title="Drag your answer to the basket and click on the A to check it">
+            A
           </button>
         </div>
-      <div class="col check-discard-container">  
-          <div id="basket"></div>
-          <div id="discarded">
-          </div>
+        <div class="col check-discard-container">
+          <div id="basket" data-toggle="tooltip"
+            title="Drag your answer here and click on the A to check it"></div>
+          <div id="discarded" data-toggle="tooltip"
+            title="(Optional) Drag the light balls here"></div>
         </div>
       </div>
     </div>
@@ -93,8 +99,23 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Sortable.js -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
     <script src="assets/js/script.js" async></script>
   </body>

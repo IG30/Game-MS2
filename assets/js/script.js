@@ -56,11 +56,6 @@ class nameOfTheGame {
   shufflegroup() {
     const groupBalls = document.querySelector(".balls-container");
     let shuffleBalls = this.basketballsArray;
-    // for (let i = 0; i < shuffleBalls.length; i++) {
-    //   [].forEach.call(shuffleBalls, function (item) {
-    //     groupBalls.appendChild(item);
-    //   });
-    // }
     shuffleBalls.forEach((item) => {
       groupBalls.appendChild(item);
     });
@@ -193,29 +188,30 @@ function ready() {
 
   new Sortable(leftSide, {
     group: "shared", // set all lists to same group
-    animation: 150,
+    animation: 500,
   });
 
   new Sortable(rightSide, {
     group: "shared",
-    animation: 150,
+    animation: 500,
   });
 
   new Sortable(ballsGroup, {
     group: "shared",
+    animation: 500,
   });
 
   new Sortable(discarded, {
     group: "shared",
-    animation: 150,
+    animation: 500,
   });
 
   new Sortable(basket, {
     group: "shared",
-    animation: 150,
+    animation: 500,
   });
 
-  clickTostart();
+  
 
   function clickTostart() {
     let firtsOverlay = document.getElementById("start-overlay");
@@ -223,8 +219,16 @@ function ready() {
       firtsOverlay.classList.remove("visible");
       game.startGame();
     });
-  }
 }
+
+  clickTostart();
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+}
+
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", ready());
