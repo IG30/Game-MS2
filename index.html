@@ -22,11 +22,35 @@
     <title>Riddle-Find-The-heavier-Ball</title>
   </head>
   <body>
-    <h1 class="page-title" data-toggle="tooltip" data-placement="right"
-            title="Click the title to start the game">Find The Heavier Ball</h1>
-    <div class="game-info">Time: <span id="time-remaining"> 180 </span></div>
+    <h1
+      class="page-title"
+      data-toggle="tooltip"
+      title="Click the title to start the game"
+    >
+      Find The Heavier Ball
+    </h1>
+    <div class="container">
+    <div class="row">
+    <div class="col scale-moves">Scale: <span id="scale-moves"> 2 </span></div>
+    <div class=" col game-info">Time: <span id="time-remaining"> 180 </span></div>
+    <div class="col discarded-balls">Bin: <span id="discarded-balls"> 0 </span></div>
+    </div>
+    </div>
+    <!--Overlays-->
     <div id="start-overlay" class="overlay-text visible">
-      Rules of the game. Click to Start the Game!
+      <h1>Find The Heavier Ball</h1>
+      <p> There are nine identical basketballs and one is heavier than the rest. Can you find the heaviest ball?
+      </p>
+      <p>Follow these steps:</p>
+      <ol>
+      <li>Drag the basketballs one by one on to both sides of the scale.</li><br>
+      <li>Click on the "S" button to check your selection. You can only click this twice so choose wisely.
+       The scale should move if you chose the heaviest ball. CLick the scale button to rebalance the scale.</li><br>
+      <li>To discard a light ball, drag and drop into the bin. This step is optional.</li><br>
+      <li>If you think you found the heaviest ball, drag it to the net and click the "A" button to find out if you chose the heaviest basketball.<br>
+       NOTE: This can only be done once.</li><br>
+      </ol>
+      <p>You have 180s to complete the riddle. Click to start. Good Luck!</p>
     </div>
     <div id="game-over-text" class="overlay-text">
       GAME OVER!
@@ -36,7 +60,7 @@
       VICTORY!
       <span class="overlay-text-small">Click To Start the Game!</span>
     </div>
-
+<!-- Control panel on top of the page-->
     <div class="container control-panel-container">
       <div class="row">
         <div class="col control-panel">
@@ -44,26 +68,41 @@
             type="button"
             class="btn btn-border-pop scale-check"
             data-toggle="tooltip"
-            title="Click on the S to use the scale"
+            title="Scale: click to use the scale"
           >
             S
           </button>
-          <button type="button" class="btn btn-border-pop reset-scale" data-toggle="tooltip"
-            title="Click on it to equalize the scale"></button>
-          <button type="button" class="btn btn-border-pop check-answer" data-toggle="tooltip"
-            title="Drag your answer to the basket and click on the A to check it">
+          <button
+            type="button"
+            class="btn btn-border-pop reset-scale"
+            data-toggle="tooltip"
+            title="Click to equalize the scale"
+          ></button>
+          <button
+            type="button"
+            class="btn btn-border-pop check-answer"
+            data-toggle="tooltip"
+            title="Answer:drag your answer to the basket and click here to check it"
+            disabled
+          >
             A
           </button>
         </div>
         <div class="col check-discard-container">
-          <div id="basket" data-toggle="tooltip"
-            title="Drag your answer here and click on the A to check it"></div>
-          <div id="discarded" data-toggle="tooltip"
-            title="(Optional) Drag the light balls here"></div>
+          <div
+            id="discarded"
+            data-toggle="tooltip"
+            title="(Optional) Drag the light balls here"
+          ></div>
+          <div
+            id="basket"
+            data-toggle="tooltip"
+            title="Drag your answer here and click on the A to check it"
+          ></div>
         </div>
       </div>
     </div>
-
+<!-- Scale sides and group of basketballs-->
     <div class="container">
       <div class="row">
         <div id="leftSide" class="col-4 left-side"></div>

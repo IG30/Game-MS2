@@ -11,7 +11,7 @@ body {
   font-weight: normal;
   text-align: center;
   font-size: 6em;
-  margin-top: 50px;
+  margin-top: 100px;
   cursor: pointer;
 }
 
@@ -20,11 +20,23 @@ body {
   font-size: 2.5em;
   font-family: "Aclonica", sans-serif;
   text-align: center;
+  padding-right: 100px;
 }
 
+#time-remaining {
+  position: absolute;
+  margin-left: 10px;
+}
+
+.discarded-balls,
+.scale-moves {
+  color: silver;
+  font-size: 2.5em;
+  font-family: "Aclonica", sans-serif;
+  text-align: center;
+}
 
 /* This Basketballs group and Scale sides*/
-
 
 .balls-container {
   display: grid;
@@ -45,6 +57,9 @@ body {
   overflow: hidden;
   align-content: center;
   transition: transform 1000ms ease-in-out;
+  -moz-transition: transform 1000ms ease-in-out;
+  -webkit-transition: transform 1000ms ease-in-out;
+  -o-transition: transform 1000ms ease-in-out;
 }
 
 .right-side {
@@ -59,6 +74,9 @@ body {
   overflow: hidden;
   align-content: center;
   transition: transform 1000ms ease-in-out;
+  -moz-transition: transform 1000ms ease-in-out;
+  -webkit-transition: transform 1000ms ease-in-out;
+  -o-transition: transform 1000ms ease-in-out;
 }
 
 .left-side.heavier {
@@ -68,8 +86,6 @@ body {
 .right-side.heavier {
   transform: translateY(100px);
 }
-
-
 
 .basketballs {
   position: relative;
@@ -83,6 +99,9 @@ body {
 .basketballs:hover {
   transform: scale(0.97);
   transition: transform 0.2s ease-in-out;
+  -moz-transition: transform 0.2s ease-in-out;
+  -webkit-transition: transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
 }
 
 img {
@@ -90,7 +109,6 @@ img {
   height: 125px;
   border-radius: 50%;
 }
-
 
 /* This is the style for the overlays*/
 
@@ -103,7 +121,6 @@ img {
   bottom: 0;
   justify-content: center;
   align-items: center;
-  text-align: center;
   z-index: 100;
   color: #ffffff;
   font-family: "Aclonica", sans-serif;
@@ -122,10 +139,9 @@ img {
   }
   to {
     background-color: rgba(0, 0, 0, 0.8);
-    font-size: 10em;
+    font-size: 1.5em;
   }
 }
-
 
 /*This is the style for the Control panel under the time. */
 
@@ -136,56 +152,51 @@ img {
   margin-bottom: 50px;
 }
 
-
-
 .control-panel {
   display: flex;
 }
 
+.btn {
+  background-color: var(--background-color);
+  font-family: "Aclonica", sans-serif;
+  position: relative;
+  color: black;
 
-.btn{
-    background-color: var(--background-color);
-    font-family: "Aclonica", sans-serif;
-    position: relative;
-    color:black;    
-
-
-    --background-color: #FF8C00;
-    --border-size: 2px;
-
+  --background-color: #ff8c00;
+  --border-size: 2px;
 }
 
-.btn.btn-border-pop::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    border: var(--border-size) solid var(--background-color);
-    transition: top, right, left, bottom, 100ms, ease-in-out;
+.btn.btn-border-pop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  border: var(--border-size) solid var(--background-color);
+  transition: top, right, left, bottom, 100ms, ease-in-out;
+  -moz-transition: top, right, left, bottom, 100ms, ease-in-out;
+  -webkit-transition: top, right, left, bottom, 100ms, ease-in-out;
+  -o-transition: top, right, left, bottom, 100ms, ease-in-out;
 }
 
-.btn.btn-border-pop:hover::before,
-.btn.btn-border-pop:focus::before{
-    top: calc(var(--border-size) * -3);
-    right: calc(var(--border-size) * -3);
-    left: calc(var(--border-size) * -3);
-    bottom: calc(var(--border-size) * -3);
+.btn.btn-border-pop:hover:not([disabled]):before,
+.btn.btn-border-pop:focus:not([disabled]):before {
+  top: calc(var(--border-size) * -3);
+  right: calc(var(--border-size) * -3);
+  left: calc(var(--border-size) * -3);
+  bottom: calc(var(--border-size) * -3);
 }
 
-div.tooltip-inner{
-    background-color: silver;
-    font-family: "Aclonica", sans-serif;
-    color:black;
+div.tooltip-inner {
+  background-color: silver;
+  font-family: "Aclonica", sans-serif;
+  color: black;
 }
-
-
 
 #basket {
-  background-image: url("../images/basket.png");
-  background-color: silver;
+  background-image: url("../images/net.png");
   background-size: cover;
   width: 150px;
   height: 150px;
@@ -211,14 +222,12 @@ div.tooltip-inner{
   margin: 10px;
 }
 
-
-.check-discard-container{
-    display: flex;
-    justify-content: space-around;
+.check-discard-container {
+  display: flex;
+  justify-content: space-around;
 }
 
-
-.check-answer{
+.check-answer {
   font-size: 3.5em;
   height: 100px;
   width: 100px;
@@ -235,4 +244,5 @@ div.tooltip-inner{
   flex-flow: column wrap;
   overflow: hidden;
   align-content: center;
+  margin-left: 20px;
 }
