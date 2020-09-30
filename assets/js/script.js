@@ -1,13 +1,3 @@
-//start the game
-//shuffle the balls
-//star time
-//dragable componenets. Make the balls dragable and create container when to drag them.
-//count how many times the user has used the scale
-//check for the heavy ball when using scale
-//set animation when the heavy ball is found in one side of the scale.
-//Set basket to check for the heavy ball.
-//Set the basket to only be used one.
-//
 
 const TOTAL_TIME_MS = 500; 
 
@@ -17,8 +7,6 @@ class nameOfTheGame {
     this.totalTime = totalTime;
     this.timeRemaining = totalTime;
     this.timer = document.getElementById("time-remaining");
-    //this.checkHeavyBall = basketButton;
-    //this.scaleUse = scaleButton;
   }
 
   startGame() {
@@ -30,10 +18,11 @@ class nameOfTheGame {
     this.timeRemaining = this.totalTime;
     this.timer.innerText = this.timeRemaining;
     this.checkScale();
-    this.checkAnswer();
+    //this.checkAnswer();
     this.reset();
     this.resetScale();
     this.restartGame();
+    this.checkResult();
   }
 
   shufflebasketballs() {
@@ -99,12 +88,14 @@ class nameOfTheGame {
 
   // button action
   checkScale() {
-    const scaleCheck = document.querySelector(".scale-check");
-    let scaleUse = 0;
+    let scaleCheck = document.querySelector(".scale-check");
+    let scaleMoves = document.querySelector("#scale-moves");
+    let scaleUse = 2;
     scaleCheck.addEventListener("click", () => {
-      scaleUse++;
-      if (scaleUse > 2) {
-        alert("The scale has been already used twice!!");
+      scaleUse--;
+      scaleMoves.innerHTML = scaleUse;
+      if (scaleUse === 0) {
+        scaleCheck.setAttribute('disabled', 'disabled');
       } else {
         this.checkForHeavy();
       }
@@ -131,34 +122,31 @@ class nameOfTheGame {
     });
   }
 
-  checkAnswer() {
-    const basketButton = document.querySelector(".check-answer");
-    let checkHeavyBall = 0;
-    basketButton.addEventListener("click", () => {
-      checkHeavyBall++;
-      if (checkHeavyBall > 1) {
-        alert("You can only check once");
-      } else {
-        this.checkResult();
-      }
-    });
-  }
+  //checkAnswer() {
+   // const basketButton = document.querySelector(".check-answer");
+  //  let checkHeavyBall = 0;
+   // basketButton.addEventListener("click", () => {
+   //   checkHeavyBall++;
+   //   if (checkHeavyBall > 1) {
+  //      alert("You can only check once");
+    //  } else {
+      //  this.checkResult();
+    //  }
+   // });
+ // }
+
+
+
 
   checkResult() {
     const basket = document.querySelector("#basket");
     const basketDivs = Array.from(basket.children);
-
+    const AButton = document.querySelector(".check-answer");
+    basket.addEventListener("dragenter", () =>{
     if (basketDivs.length === 1) {
-      if (basketDivs[0].dataset.weight === "heavy") {
-        this.victoryOver();
-      } else {
-        alert("This is light!");
-      }
-    } else if (basketDivs.length > 1) {
-      alert("Only one basketball can be check!!");
-    } else {
-      alert("The basket is empty!");
-    }
+        AButton.disabled = false;
+    } 
+    });
   }
 
   reset() {

@@ -30,10 +30,10 @@
       Find The Heavier Ball
     </h1>
     <div class="container">
-    <div class="row">
-    <div class="col scale-moves">Scale: <span id="scale-moves"> 2 </span></div>
-    <div class=" col game-info">Time: <span id="time-remaining"> 180 </span></div>
-    <div class="col discarded-balls">Bin: <span id="discarded-balls"> 0 </span></div>
+    <div class="row justify-content-around">
+    <div class="col-sm-auto scale-moves">Scale: <span id="scale-moves"> 2 </span></div>
+    <div class=" col-sm-auto game-info">Time: <span id="time-remaining"> 180 </span></div>
+    <div class="col-sm-auto discarded-balls">Bin: <span id="discarded-balls"> 0 </span></div>
     </div>
     </div>
     <!--Overlays-->
@@ -62,8 +62,8 @@
     </div>
 <!-- Control panel on top of the page-->
     <div class="container control-panel-container">
-      <div class="row">
-        <div class="col control-panel">
+      <div class="row justify-content-between">
+        <div class="col-sm-auto control-panel">
           <button
             type="button"
             class="btn btn-border-pop scale-check"
@@ -83,12 +83,12 @@
             class="btn btn-border-pop check-answer"
             data-toggle="tooltip"
             title="Answer:drag your answer to the basket and click here to check it"
-            disabled
+            disabled="disabled"
           >
             A
           </button>
         </div>
-        <div class="col check-discard-container">
+        <div class="col-sm-auto check-discard-container">
           <div
             id="discarded"
             data-toggle="tooltip"
@@ -104,7 +104,7 @@
     </div>
 <!-- Scale sides and group of basketballs-->
     <div class="container">
-      <div class="row">
+      <div class="row no-gutters">
         <div id="leftSide" class="col-4 left-side"></div>
         <div id="rightSide" class="col-4 right-side"></div>
         <div id="ballsGroup" class="col balls-container">
