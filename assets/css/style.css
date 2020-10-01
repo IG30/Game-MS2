@@ -36,25 +36,36 @@ body {
   text-align: center;
 }
 
+.discarded-balls {
+  margin-right: 100px;
+}
+
+.scale-moves {
+  margin-left: 100px;
+}
+
 /* This Basketballs group and Scale sides*/
 
 .balls-container {
+    resize: none;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  grid-gap: 10px;
-  margin: 50px;
+  margin-left: 50px;
 }
 
 .left-side {
   background: url("../images/plate.png");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   border-radius: 0 0 20px 20px;
-  width: 225px;
-  margin-right: 10px;
+  width: 400px;
   height: 300px;
+  margin-right: 20px;
   display: flex;
   flex-flow: column wrap;
   overflow: hidden;
+  resize: none;
   align-content: center;
   transition: transform 1000ms ease-in-out;
   -moz-transition: transform 1000ms ease-in-out;
@@ -64,11 +75,14 @@ body {
 
 .right-side {
   background: url("../images/plate.png");
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   border-radius: 0 0 20px 20px;
-  width: 225px;
-  margin-left: 10px;
+  width: 400px;
   height: 300px;
+  margin-left: 30px;
+  margin-right: 50px;
   display: flex;
   flex-flow: column wrap;
   overflow: hidden;
@@ -111,6 +125,17 @@ img {
 }
 
 /* This is the style for the overlays*/
+
+
+ol{
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+li{
+    margin-bottom: 30px;
+}
 
 .overlay-text {
   display: none;
@@ -181,8 +206,7 @@ img {
   -o-transition: top, right, left, bottom, 100ms, ease-in-out;
 }
 
-.btn.btn-border-pop:hover:not([disabled]):before,
-.btn.btn-border-pop:focus:not([disabled]):before {
+.btn.btn-border-pop:hover:not([disabled]):before {
   top: calc(var(--border-size) * -3);
   right: calc(var(--border-size) * -3);
   left: calc(var(--border-size) * -3);
@@ -244,5 +268,58 @@ div.tooltip-inner {
   flex-flow: column wrap;
   overflow: hidden;
   align-content: center;
-  margin-right: 200px;
+  margin-left: 80px;
+}
+
+@media (max-width: 800px) {
+  .page-title {
+    font-size: 4em;
+    margin-top: 20px;
+  }
+
+  .discarded-balls {
+    margin-right: 0;
+  }
+
+  .scale-moves {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  .scale-check {
+    margin-left: 20px;
+  }
+
+  .board {
+    margin-top: 100px;
+  }
+
+  .left-side {
+    min-width: 125px;
+    min-height: 150px;
+    margin-left: 10px;
+  }
+
+  .right-side {
+    min-width: 125px;
+    min-height: 150px;
+    margin-right: 10px;
+  }
+
+  .balls-container {
+    min-width: 125px;
+    min-height: 150px;
+    margin-left: 0px;
+  }
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 1em;
+  }
+}
+
 }

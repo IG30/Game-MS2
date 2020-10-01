@@ -29,7 +29,7 @@
     >
       Find The Heavier Ball
     </h1>
-    <div class="container">
+    <div class="container-fluid">
     <div class="row justify-content-around">
     <div class="col-sm-auto scale-moves">Scale: <span id="scale-moves"> 2 </span></div>
     <div class=" col-sm-auto game-info">Time: <span id="time-remaining"> 180 </span></div>
@@ -43,12 +43,12 @@
       </p>
       <p>Follow these steps:</p>
       <ol>
-      <li>Drag the basketballs one by one on to both sides of the scale.</li><br>
+      <li>Drag the basketballs one by one on to both sides of the scale.</li>
       <li>Click on the "S" button to check your selection. You can only click this twice so choose wisely.
-       The scale should move if you chose the heaviest ball. CLick the scale button to rebalance the scale.</li><br>
-      <li>To discard a light ball, drag and drop into the bin. This step is optional.</li><br>
-      <li>If you think you found the heaviest ball, drag it to the net and click the "A" button to find out if you chose the heaviest basketball.<br>
-       NOTE: This can only be done once.</li><br>
+       The scale should move if you chose the heaviest ball. CLick the scale button to rebalance the scale.</li>
+      <li>To discard a light ball, drag and drop into the bin. This step is optional.</li>
+      <li>If you think you found the heaviest ball, drag it to the net and click the "A" button to find out if you chose the heaviest basketball.
+       NOTE: This can only be done once.</li>
       </ol>
       <p>You have 180s to complete the riddle. Click to start. Good Luck!</p>
     </div>
@@ -61,8 +61,8 @@
       <span class="overlay-text-small">Click To Start the Game!</span>
     </div>
 <!-- Control panel on top of the page-->
-    <div class="container control-panel-container">
-      <div class="row justify-content-between">
+    <div class="container-fluid control-panel-container">
+      <div class="row justify-content-around">
         <div class="col-sm-auto control-panel">
           <button
             type="button"
@@ -76,7 +76,7 @@
             type="button"
             class="btn btn-border-pop reset-scale"
             data-toggle="tooltip"
-            title="Click to equalize the scale"
+            title="Click to rebalance the scale"
           ></button>
           <button
             type="button"
@@ -90,24 +90,24 @@
         </div>
         <div class="col-sm-auto check-discard-container">
           <div
-            id="discarded"
-            data-toggle="tooltip"
-            title="(Optional) Drag the light balls here"
-          ></div>
-          <div
             id="basket"
             data-toggle="tooltip"
             title="Drag your answer here and click on the A to check it"
+          ></div>
+          <div
+            id="discarded"
+            data-toggle="tooltip"
+            title="(Optional) Drag the light balls here"
           ></div>
         </div>
       </div>
     </div>
 <!-- Scale sides and group of basketballs-->
-    <div class="container">
-      <div class="row no-gutters">
-        <div id="leftSide" class="col-4 left-side"></div>
-        <div id="rightSide" class="col-4 right-side"></div>
-        <div id="ballsGroup" class="col balls-container">
+    <div class="container board">
+      <div class="row">
+        <div id="leftSide" class="col  left-side"></div>
+        <div id="rightSide" class="col  right-side"></div>
+        <div id="ballsGroup" class="col  balls-container">
           <div class="basketballs" data-weight="light">
             <img src="assets/images/ball.png" alt="basketball" />
           </div>
