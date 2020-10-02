@@ -8,6 +8,8 @@ class nameOfTheGame {
     this.timer = document.getElementById("time-remaining");
     this.ballsInBasket = 0;
     this.checkAnswerBtn = document.getElementById("checkAnswer");
+    this.bin = document.getElementById("discarded-balls");
+    this.ballsInBin = 0;
   }
 
   startGame() {
@@ -122,19 +124,6 @@ class nameOfTheGame {
     });
   }
 
-  //checkAnswer() {
-  // const basketButton = document.querySelector(".check-answer");
-  //  let checkHeavyBall = 0;
-  // basketButton.addEventListener("click", () => {
-  //   checkHeavyBall++;
-  //   if (checkHeavyBall > 1) {
-  //      alert("You can only check once");
-  //  } else {
-  //  this.checkResult();
-  //  }
-  // });
-  // }
-
   checkResult() {
     const basket = document.querySelector("#basket");
     const basketDivs = Array.from(basket.children);
@@ -187,6 +176,16 @@ class nameOfTheGame {
       this.updateCheckAnswerButton();
     }
   }
+
+  addOnBin(){
+      this.ballsInBin++;
+      this.bin.innerHTML = this.ballsInBin;
+  }
+
+  removeFromBin(){
+      this.ballsInBin--;
+      this.bin.innerHTML = this.ballsInBin;
+  }
 }
 // close the objecy
 
@@ -212,6 +211,14 @@ function ready() {
   new Sortable(discarded, {
     group: "shared",
     animation: 500,
+    onAdd: function (/**Event*/ evt) {
+      // same properties as onEnd
+       game.addOnBin();
+    },
+    onRemove: function (/**Event*/ evt) {
+      // same properties as onEnd
+      game.removeFromBin();
+    },
   });
 
   new Sortable(basket, {
@@ -227,11 +234,7 @@ function ready() {
       // same properties as onEnd
       game.removeBallFromBasket();
     },
-    // Element is chosen
-    onChoose: function (/**Event*/ evt) {
-      evt.oldIndex; // element index within parent
-      console.log(evt);
-    },
+    
   });
 
   function clickTostart() {

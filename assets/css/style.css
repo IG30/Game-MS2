@@ -40,6 +40,11 @@ body {
   margin-right: 100px;
 }
 
+#discarded-balls{
+    position:absolute;
+    margin-left: 10px;
+}
+
 .scale-moves {
   margin-left: 100px;
 }
