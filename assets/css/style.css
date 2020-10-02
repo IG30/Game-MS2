@@ -72,10 +72,10 @@ body {
   overflow: hidden;
   resize: none;
   align-content: center;
-  transition: transform 1000ms ease-in-out;
-  -moz-transition: transform 1000ms ease-in-out;
-  -webkit-transition: transform 1000ms ease-in-out;
-  -o-transition: transform 1000ms ease-in-out;
+  transition: transform 900ms ease-in-out;
+  -moz-transition: transform 900ms ease-in-out;
+  -webkit-transition: transform 900ms ease-in-out;
+  -o-transition: transform 900ms ease-in-out;
 }
 
 .right-side {
@@ -92,10 +92,10 @@ body {
   flex-flow: column wrap;
   overflow: hidden;
   align-content: center;
-  transition: transform 1000ms ease-in-out;
-  -moz-transition: transform 1000ms ease-in-out;
-  -webkit-transition: transform 1000ms ease-in-out;
-  -o-transition: transform 1000ms ease-in-out;
+  transition: transform 900ms ease-in-out;
+  -moz-transition: transform 900ms ease-in-out;
+  -webkit-transition: transform 900ms ease-in-out;
+  -o-transition: transform 900ms ease-in-out;
 }
 
 .left-side.heavier {

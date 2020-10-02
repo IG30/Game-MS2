@@ -98,6 +98,7 @@ class nameOfTheGame {
       scaleMoves.innerHTML = scaleUse;
       if (scaleUse === 0) {
         scaleCheck.setAttribute("disabled", "disabled");
+        this.checkForHeavy();
       } else {
         this.checkForHeavy();
       }
