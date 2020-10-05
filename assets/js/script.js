@@ -65,13 +65,13 @@ class nameOfTheGame {
   gameOver() {
     clearInterval(this.countDown);
     document.getElementById("game-over-text").classList.add("visible");
-    function clickTostart() {
+   function clickTostart() {
       let gameOverOverlay = document.getElementById("game-over-text");
       gameOverOverlay.addEventListener("click", () => {
         document.location.reload(true);
       });
     }
-    clickTostart();
+   clickTostart();
   }
 
   victoryOver() {
@@ -248,6 +248,13 @@ function ready() {
   }
 
   clickTostart();
+
+//$('start-overlay').on({ 'touchstart' : function(){ 
+  //  $('start-overlay').classList.remove("visible");
+    //  game.startGame(); 
+    //} 
+//});
+  
 
   $('[data-toggle="tooltip"]').tooltip({ trigger:'hover'});
 }

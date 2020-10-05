@@ -55,7 +55,6 @@ body {
   resize: none;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  margin-left: 50px;
 }
 
 .left-side {
@@ -172,8 +171,8 @@ li {
   }
 }
 
-#mobile-overlay{
-    color: black;
+#mobile-overlay {
+  color: black;
 }
 
 /*This is the style for the Control panel under the time. */
@@ -279,80 +278,75 @@ div.tooltip-inner {
   margin-left: 80px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 450px) {
   .page-title {
     font-size: 4em;
     margin-top: 20px;
   }
 
   .discarded-balls {
-    margin-right: 0;
+    margin-right: 20px;
   }
+
 
   .scale-moves {
     margin-left: 40px;
     margin-right: 40px;
   }
 
-  .scale-check {
-    margin-left: 20px;
+
+  #discarded{
+      margin-left: 40px;
   }
 
   .board {
     margin-top: 100px;
+    justify-content: center;
   }
 
   .left-side {
-    min-width: 125px;
-    min-height: 150px;
-    margin-left: 10px;
+    width: 125px;
+    height: 150px;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 100px;
   }
 
   .right-side {
-    min-width: 125px;
-    min-height: 150px;
+    width: 125px;
+    height: 150px;
     margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
   }
 
-  .balls-container {
-    min-width: 125px;
-    min-height: 150px;
-    margin-left: 0px;
+  .balls-container{
+      margin-bottom: 30px;
   }
 
-  .overlay-text {
-    z-index: 0;
+
+  img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
   }
 
-  #mobile-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: silver;
-    z-index: 100;
-    font-family: "Aclonica", sans-serif;
+  .basketballs {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-left: 25px;
   }
 
-  #mobile-overlay.not-available {
-    display: flex;
-    flex-direction: column;
-    animation: overlay-grow 500ms forwards;
-  }
 
-  @keyframes overlay-grow {
-  from {
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 0;
-  }
-  to {
-    background-color: black;
-    font-size: 1.5em;
-  }
+#start-overlay{
+    text-align: center;
+    overflow: auto;
 }
+
+#start-overlay.overlay-text.visible{
+    display:inline;
+}
+
+  
 }
