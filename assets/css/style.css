@@ -40,9 +40,9 @@ body {
   margin-right: 100px;
 }
 
-#discarded-balls{
-    position:absolute;
-    margin-left: 10px;
+#discarded-balls {
+  position: absolute;
+  margin-left: 10px;
 }
 
 .scale-moves {
@@ -52,7 +52,7 @@ body {
 /* This Basketballs group and Scale sides*/
 
 .balls-container {
-    resize: none;
+  resize: none;
   display: grid;
   grid-template-columns: repeat(3, auto);
   margin-left: 50px;
@@ -131,15 +131,14 @@ img {
 
 /* This is the style for the overlays*/
 
-
-ol{
-    align-items: center;
-    margin-left: 50px;
-    margin-right: 50px;
+ol {
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-li{
-    margin-bottom: 30px;
+li {
+  margin-bottom: 30px;
 }
 
 .overlay-text {
@@ -171,6 +170,10 @@ li{
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 1.5em;
   }
+}
+
+#mobile-overlay{
+    color: black;
 }
 
 /*This is the style for the Control panel under the time. */
@@ -316,15 +319,40 @@ div.tooltip-inner {
     min-height: 150px;
     margin-left: 0px;
   }
-@keyframes overlay-grow {
+
+  .overlay-text {
+    z-index: 0;
+  }
+
+  #mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: silver;
+    z-index: 100;
+    font-family: "Aclonica", sans-serif;
+  }
+
+  #mobile-overlay.not-available {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+  }
+
+  @keyframes overlay-grow {
   from {
     background-color: rgba(0, 0, 0, 0);
     font-size: 0;
   }
   to {
-    background-color: rgba(0, 0, 0, 0.8);
-    font-size: 1em;
+    background-color: black;
+    font-size: 1.5em;
   }
 }
-
 }

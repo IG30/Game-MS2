@@ -37,6 +37,7 @@
     </div>
     </div>
     <!--Overlays-->
+    <div id="mobile-overlay" class="not-available">Sorry this web is not available on mobile devices. Please log on a desktop</div>
     <div id="start-overlay" class="overlay-text visible">
       <h1>Find The Heavier Ball</h1>
       <p> There are nine identical basketballs and one is heavier than the rest. Can you find the heaviest ball?
@@ -64,30 +65,30 @@
     <div class="container-fluid control-panel-container">
       <div class="row justify-content-around">
         <div class="col-sm-auto control-panel">
+        <div class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Scale: click to use the scale">
           <button
             type="button"
             class="btn btn-border-pop scale-check"
-            data-toggle="tooltip"
-            title="Scale: click to use the scale"
           >
             S
           </button>
+        </div>
           <button
             type="button"
             class="btn btn-border-pop reset-scale"
             data-toggle="tooltip"
             title="Click to rebalance the scale"
           ></button>
+          <div class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Answer:drag your answer to the basket and click here to check it">
           <button
             type="button"
             class="btn btn-border-pop check-answer"
-            data-toggle="tooltip"
-            title="Answer:drag your answer to the basket and click here to check it"
             disabled="disabled"
             id="checkAnswer"
           >
             A
           </button>
+          </div>
         </div>
         <div class="col-sm-auto check-discard-container">
           <div

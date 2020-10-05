@@ -99,6 +99,7 @@ class nameOfTheGame {
       if (scaleUse === 0) {
         scaleCheck.setAttribute("disabled", "disabled");
         this.checkForHeavy();
+        scaleCheck.removeAttribute("tooltip");
       } else {
         this.checkForHeavy();
       }
@@ -248,7 +249,7 @@ function ready() {
 
   clickTostart();
 
-  $('[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });
+  $('[data-toggle="tooltip"]').tooltip({ trigger:'hover'});
 }
 
 if (document.readyState === "loading") {
