@@ -348,5 +348,21 @@ div.tooltip-inner {
     display:inline;
 }
 
-  
 }
+
+@media (min-width:736px) and (max-width:812px){
+
+    #start-overlay{
+    text-align: center;
+    overflow: auto;
+}
+
+#start-overlay.overlay-text.visible{
+    display:inline;
+}
+
+
+ }
+
+  
+
