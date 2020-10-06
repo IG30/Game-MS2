@@ -213,7 +213,7 @@ li {
   -o-transition: top, right, left, bottom, 100ms, ease-in-out;
 }
 
-.btn.btn-border-pop:hover:not([disabled]):before {
+.btn.btn-border-pop:hover::before {
   top: calc(var(--border-size) * -3);
   right: calc(var(--border-size) * -3);
   left: calc(var(--border-size) * -3);

@@ -196,7 +196,7 @@ function ready() {
   let game = new nameOfTheGame(180, basketballs);
 
   new Sortable(leftSide, {
-    group: "shared", // set all lists to same group
+    group: "shared", 
     animation: 500,
   });
 
@@ -213,12 +213,12 @@ function ready() {
   new Sortable(discarded, {
     group: "shared",
     animation: 500,
-    onAdd: function (/**Event*/ evt) {
-      // same properties as onEnd
+    onAdd: function (evt) {
+      
        game.addOnBin();
     },
-    onRemove: function (/**Event*/ evt) {
-      // same properties as onEnd
+    onRemove: function (evt) {
+      
       game.removeFromBin();
     },
   });
@@ -226,14 +226,11 @@ function ready() {
   new Sortable(basket, {
     group: "shared",
     animation: 500,
-    // Element is dropped into the list from another list
-    onAdd: function (/**Event*/ evt) {
-      // same properties as onEnd
+    onAdd: function (evt) {
+      
       game.addBallToBasket();
     },
-    // Element is removed from the list into another list
-    onRemove: function (/**Event*/ evt) {
-      // same properties as onEnd
+    onRemove: function (evt) {
       game.removeBallFromBasket();
     },
     
@@ -248,12 +245,6 @@ function ready() {
   }
 
   clickTostart();
-
-//$('start-overlay').on({ 'touchstart' : function(){ 
-  //  $('start-overlay').classList.remove("visible");
-    //  game.startGame(); 
-    //} 
-//});
   
 
   $('[data-toggle="tooltip"]').tooltip({ trigger:'hover'});
