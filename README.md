@@ -27,6 +27,8 @@ Client Stories:
 4. As a user I would like to have a count of the balls that I have discarded to quickly assess my progress.
 5. As a user I would like a way to quickly restart the game.
 
+# Features
+
 **In order to achieve the above fun and aesthetically pleasing riddle I did the follow**
 
 * When the game is launched a screen pops up with a message. The player is told the rules of the game, the time and click to start.
@@ -65,6 +67,18 @@ Apart fron the first, second and third element, the rest have a tooltip with a s
 ![Game Over](assets/images/gameOver.PNG)
 
 ![Victory](assets/images/victory.PNG)
+
+**Sides of the Scale**
+
+The user can drag the balls here to use the scale to check for the heavier ball. If the Heavier ball is in the selection of balls that user chose the scale will move.
+
+![Scale](assets/images/scale.PNG)
+
+**Group of balls**
+
+The group of basketballs are draggable and they can be place on the scale, the bin and the basket net.
+
+![Basketballs](assets/images/groupOfBalls.PNG)
 
 # Testing
 
