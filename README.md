@@ -80,7 +80,7 @@ The group of basketballs are draggable and they can be place on the scale, the b
 
 ![Basketballs](assets/images/groupOfBalls.PNG)
 
-# Testing
+# Manual Testing
 
 1. Scenario
 * **Given** The project page
@@ -95,8 +95,70 @@ The group of basketballs are draggable and they can be place on the scale, the b
 * **And** the time countdown is started
 
 3. Scenario
-* **Given** the main page.
+* **Given** the main page
 * **When** the user hover over the title
 * **And** after click on it
-* **Then** The tooltip appear with a description
-* **And** the game is restarted. 
+* **Then** the game is restarted. 
+
+4. Scenario
+* **Given** the main page
+* **When** the user hover on the "S Button" or "The scale icon" or "A button" or "Basket net" or "the bin icon"
+* **Then** A tooltip is display with a small description
+
+5. Scenario
+* **Given** the main page
+* **When** the user click and hold on a ball
+* **Then** the user is able to drop the ball on to the "side of the scale" or the "basket net" or "the bin"
+
+6. Scenario
+* **Given** the main page
+* **When** the user drag the heavy basketball on to the "left side" or the "right side" of the scale
+* **And** click the S button
+* **Then** the side with the heavy ball drop down
+* **And** the sacle count drop down one
+
+7. Scenario
+* **Given** the main page
+* **When** the "left side" or "right side" of the scale is down
+* **And** the user clicks the "scale icon"
+* **Then** the sides of the scale rebalance.
+
+8. Scenario
+* **Given** the main page
+* **When** the user drag a ball into the basket net
+* **Then** the "A button" gets enable
+
+9. Scenario
+* **Given** the main page
+* **When** the user drag multiple balls into the basket net
+* **Then** the "A button" remains disabled
+
+10. Scenario
+* **Given** the main page
+* **When** there is a light ball in the basket net
+* **And** the user click on the "A button"
+* **Then** the "game over" overlay is display from the center growing foward.
+
+11. Scenario
+* **Given** the main page
+* **When** there is the heavier ball in the basket net
+* **And** the user click on the "A button"
+* **Then** the "victory" overlay is display from the center growing foward.
+
+12. Scenario
+* **Given** the "game over" or "Victory overlay
+* **When** the user clicks on the page
+* **Then** the riddle restart
+
+13. Scenario
+* **Given** the main page
+* **When**the user drag a ball into the bin
+* **Then** the bin count up by one
+
+Testing the game help me find out that when the user restarted the game after clicking on the title or the game over and victory overlay the time was going twice as fast.
+This was happening because of the way that the script.js was written. The event listeners and the time count down were call multiple times. This meant that after restarting the game
+the time was going twice as fast. One time for the first round and another time for the second round. So everytime that the user click to restart the time was going fater and faster.
+Same with the eventListeners, everytime that user restarted the game the S button was already disable because for the riddle the button was already used twice.
+To resolve this issue I put all the eventListener into the one fuction to make sure that they were called correctly. For the buttons clicks counts I set their values 
+into variable that will get reset everytime the game restart.
+
