@@ -47,7 +47,7 @@ If the users click on the titlte the game will restart. This is indicated in the
 
 **Control Panel**
 
-![Control Panel](assets/images/controlPanel)
+![Control Panel](assets/images/controlPanel.PNG)
 
 It contains the following elemets:
 

@@ -2,29 +2,81 @@ const TOTAL_TIME_MS = 500;
 
 class nameOfTheGame {
   constructor(totalTime, basketballs) {
-    this.basketballsArray = basketballs;
-    this.totalTime = totalTime;
-    this.timeRemaining = totalTime;
     this.timer = document.getElementById("time-remaining");
-    this.ballsInBasket = 0;
     this.checkAnswerBtn = document.getElementById("checkAnswer");
     this.bin = document.getElementById("discarded-balls");
+    this.scaleMoves = document.querySelector("#scale-moves");
+    this.scaleCheckBtn = document.querySelector(".scale-check");
+
+    this.basketballsArray = basketballs;
+    this.totalTime = totalTime;
+
+    this.timeRemaining = totalTime;
+    this.ballsInBasket = 0;
     this.ballsInBin = 0;
+    this.scaleUse = 2;
+
+    new Sortable(leftSide, {
+        group: "shared",
+        animation: 500,
+    });
+
+    new Sortable(rightSide, {
+        group: "shared",
+        animation: 500,
+    });
+
+    new Sortable(ballsGroup, {
+        group: "shared",
+        animation: 500,
+    });
+
+    new Sortable(discarded, {
+        group: "shared",
+        animation: 500,
+        onAdd: function (evt) {
+          this.addOnBin();
+        }.bind(this),
+        onRemove: function (evt) {
+          this.removeFromBin();
+        }.bind(this),
+    });
+
+    new Sortable(basket, {
+        group: "shared",
+        animation: 500,
+        onAdd: function (evt) {
+          this.addBallToBasket();
+        }.bind(this),
+        onRemove: function (evt) {
+          this.removeBallFromBasket();
+        }.bind(this),
+    });
+
+    this.addEventListener();
   }
 
   startGame() {
+    this.timeRemaining = this.totalTime;
+    this.ballsInBasket = 0;
+    this.ballsInBin = 0;
+    this.scaleUse = 2;
+    
     setTimeout(() => {
       this.shufflebasketballs();
       this.shufflegroup();
+      clearInterval(this.countDown);
       this.countDown = this.startCountDown();
     }, TOTAL_TIME_MS);
+
     this.timeRemaining = this.totalTime;
     this.timer.innerText = this.timeRemaining;
-    this.checkScale();
-    this.reset();
     this.resetScale();
-    this.restartGame();
-    
+    this.removeOverlays();
+    this.renderBinLabel();
+    this.renderScaleUsesLabel();
+    this.updateCheckAnswerButton();
+    this.updateScaleCheckButton();
   }
 
   shufflebasketballs() {
@@ -32,79 +84,106 @@ class nameOfTheGame {
     let currentIndex = this.basketballsArray.length;
     let temporaryValue;
     let randomIndex;
-
+    let balls = this.basketballsArray.slice();
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-      temporaryValue = this.basketballsArray[currentIndex];
-      this.basketballsArray[currentIndex] = this.basketballsArray[randomIndex];
-      this.basketballsArray[randomIndex] = temporaryValue;
+      temporaryValue = balls[currentIndex];
+      balls[currentIndex] = balls[randomIndex];
+      balls[randomIndex] = temporaryValue;
     }
-    return this.basketballsArray;
+    return balls;
   }
   // group of all balls in game
 
   shufflegroup() {
     const groupBalls = document.querySelector(".balls-container");
-    let shuffleBalls = this.basketballsArray;
-    shuffleBalls.forEach((item) => {
+    this.basketballsArray.forEach((item) => {
       groupBalls.appendChild(item);
     });
   }
+
   // count down for the time
   startCountDown() {
     return setInterval(() => {
       this.timeRemaining--;
       this.timer.innerText = this.timeRemaining;
-      if (this.timeRemaining === 0) this.gameOver();
+      if (this.timeRemaining === 0) {
+        clearInterval(this.countDown);
+        this.gameOver();
+      }
     }, 1000);
   }
 
   // overlays for game over and victory
-
   gameOver() {
-    clearInterval(this.countDown);
     document.getElementById("game-over-text").classList.add("visible");
-   function clickTostart() {
-      let gameOverOverlay = document.getElementById("game-over-text");
-      gameOverOverlay.addEventListener("click", () => {
-        document.location.reload(true);
-      });
-    }
-   clickTostart();
   }
 
   victoryOver() {
-    clearInterval(this.countDown);
     document.getElementById("victory-text").classList.add("visible");
-    function clickTostart() {
-      let victoryOverlay = document.getElementById("victory-text");
-      victoryOverlay.addEventListener("click", () => {
-        document.location.reload(true);
-      });
+  }
+
+  removeOverlays() {
+    document.getElementById("game-over-text").classList.remove("visible");
+    document.getElementById("victory-text").classList.remove("visible");
+  }
+
+  onScaleCheckButton() {
+    this.scaleUse--;
+    this.renderScaleUsesLabel();
+    if (this.scaleUse === 0) {
+      this.checkForHeavy();
+    } else {
+      this.checkForHeavy();
     }
-    clickTostart();
+    this.updateScaleCheckButton();
+  }
+
+  onClickBasketButton() {
+    const basket = document.querySelector("#basket");
+    const basketDivs = Array.from(basket.children);
+    if (basketDivs[0].dataset.weight === "heavy") {
+      this.victoryOver();
+    } else {
+      this.gameOver();
+    }
+  }
+
+  addEventListener() {
+    const gameOverOverlay = document.getElementById("game-over-text");
+    gameOverOverlay.addEventListener("click", () => {
+      this.startGame();
+    });
+
+    const victoryOverlay = document.getElementById("victory-text");
+    victoryOverlay.addEventListener("click", () => {
+      this.startGame();
+    });
+
+    this.scaleCheckBtn.addEventListener("click", this.onScaleCheckButton.bind(this));
+
+    const restart = document.querySelector(".page-title");
+    restart.addEventListener("click", () => {
+      this.startGame();
+    });
+
+    let firtsOverlay = document.getElementById("start-overlay");
+    firtsOverlay.addEventListener("click", () => {
+      firtsOverlay.classList.remove("visible");
+      this.startGame();
+    });
+
+    const basketButton = document.querySelector(".check-answer");
+    basketButton.addEventListener("click", this.onClickBasketButton.bind(this));
+
+    const resetButton = document.querySelector(".reset-scale");
+    resetButton.addEventListener("click", () => {
+      this.resetScale();
+    });
   }
 
   //Check for the content in the scales.
-
-  // button action
-  checkScale() {
-    let scaleCheck = document.querySelector(".scale-check");
-    let scaleMoves = document.querySelector("#scale-moves");
-    let scaleUse = 2;
-    scaleCheck.addEventListener("click", () => {
-      scaleUse--;
-      scaleMoves.innerHTML = scaleUse;
-      if (scaleUse === 0) {
-        scaleCheck.setAttribute("disabled", "disabled");
-        this.checkForHeavy();
-        scaleCheck.removeAttribute("tooltip");
-      } else {
-        this.checkForHeavy();
-      }
-    });
-  }
 
   //Check for the data attribiute in the basketballs
   checkForHeavy() {
@@ -126,44 +205,24 @@ class nameOfTheGame {
     });
   }
 
-  checkResult() {
-    const basket = document.querySelector("#basket");
-    const basketDivs = Array.from(basket.children);
-    const basketButton = document.querySelector(".check-answer");
-    basketButton.addEventListener("click", () => {
-      if (basketDivs[0].dataset.weight === "heavy") {
-          this.victoryOver();
-      }else{
-          this.gameOver();
-      }
-    });
-  }
-
-  reset() {
-    const resetButton = document.querySelector(".reset-scale");
-    resetButton.addEventListener("click", () => {
-      this.resetScale();
-    });
-  }
-
   resetScale() {
     document.querySelector(".left-side").classList.remove("heavier");
     document.querySelector(".right-side").classList.remove("heavier");
   }
 
-  restartGame() {
-    const restart = document.querySelector(".page-title");
-    restart.addEventListener("click", () => {
-      document.location.reload(true);
-    });
-  }
-
   updateCheckAnswerButton() {
     if (this.ballsInBasket == 1) {
       this.checkAnswerBtn.removeAttribute("disabled");
-      this.checkResult();
     } else {
       this.checkAnswerBtn.setAttribute("disabled", "disabled");
+    }
+  }
+
+  updateScaleCheckButton() {
+    if (this.scaleUse === 0) {
+      this.scaleCheckBtn.setAttribute("disabled", "disabled");
+    } else {
+      this.scaleCheckBtn.removeAttribute("disabled");
     }
   }
 
@@ -179,14 +238,22 @@ class nameOfTheGame {
     }
   }
 
-  addOnBin(){
-      this.ballsInBin++;
-      this.bin.innerHTML = this.ballsInBin;
+  addOnBin() {
+    this.ballsInBin++;
+    this.renderBinLabel();
   }
 
-  removeFromBin(){
-      this.ballsInBin--;
-      this.bin.innerHTML = this.ballsInBin;
+  removeFromBin() {
+    this.ballsInBin--;
+    this.renderBinLabel();
+  }
+
+  renderBinLabel() {
+    this.bin.innerHTML = this.ballsInBin;
+  }
+
+  renderScaleUsesLabel() {
+    this.scaleMoves.innerHTML = this.scaleUse;
   }
 }
 // close the objecy
@@ -194,60 +261,8 @@ class nameOfTheGame {
 function ready() {
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
   let game = new nameOfTheGame(180, basketballs);
-
-  new Sortable(leftSide, {
-    group: "shared", 
-    animation: 500,
-  });
-
-  new Sortable(rightSide, {
-    group: "shared",
-    animation: 500,
-  });
-
-  new Sortable(ballsGroup, {
-    group: "shared",
-    animation: 500,
-  });
-
-  new Sortable(discarded, {
-    group: "shared",
-    animation: 500,
-    onAdd: function (evt) {
-      
-       game.addOnBin();
-    },
-    onRemove: function (evt) {
-      
-      game.removeFromBin();
-    },
-  });
-
-  new Sortable(basket, {
-    group: "shared",
-    animation: 500,
-    onAdd: function (evt) {
-      
-      game.addBallToBasket();
-    },
-    onRemove: function (evt) {
-      game.removeBallFromBasket();
-    },
-    
-  });
-
-  function clickTostart() {
-    let firtsOverlay = document.getElementById("start-overlay");
-    firtsOverlay.addEventListener("click", () => {
-      firtsOverlay.classList.remove("visible");
-      game.startGame();
-    });
-  }
-
-  clickTostart();
   
-
-  $('[data-toggle="tooltip"]').tooltip({ trigger:'hover'});
+  $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
 }
 
 if (document.readyState === "loading") {

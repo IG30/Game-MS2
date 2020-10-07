@@ -30,25 +30,42 @@
       Find The Heavier Ball
     </h1>
     <div class="container">
-    <div class="row justify-content-around">
-    <div class="col-sm-auto scale-moves">Scale: <span id="scale-moves"> 2 </span></div>
-    <div class=" col-sm-auto game-info">Time: <span id="time-remaining"> 180 </span></div>
-    <div class="col-sm-auto discarded-balls">Bin: <span id="discarded-balls"> 0 </span></div>
-    </div>
+      <div class="row justify-content-around">
+        <div class="col-sm-auto scale-moves">
+          Scale: <span id="scale-moves"> 2 </span>
+        </div>
+        <div class="col-sm-auto game-info">
+          Time: <span id="time-remaining"> 180 </span>
+        </div>
+        <div class="col-sm-auto discarded-balls">
+          Bin: <span id="discarded-balls"> 0 </span>
+        </div>
+      </div>
     </div>
     <!--Overlays-->
     <div id="start-overlay" class="overlay-text visible">
       <h1>Find The Heavier Ball</h1>
-      <p> There are nine identical basketballs and one is heavier than the rest. Can you find the heaviest ball?
+      <p>
+        There are nine identical basketballs and one is heavier than the rest.
+        Can you find the heaviest ball?
       </p>
       <p>Follow these steps:</p>
       <ol>
-      <li>Drag the basketballs one by one on to both sides of the scale.</li>
-      <li>Click on the "S" button to check your selection. You can only click this twice so choose wisely.
-       The scale should move if you chose the heaviest ball. CLick the scale button to rebalance the scale.</li>
-      <li>To discard a light ball, drag and drop into the bin. This step is optional.</li>
-      <li>If you think you found the heaviest ball, drag it to the net and click the "A" button to find out if you chose the heaviest basketball.
-       NOTE: This can only be done once.</li>
+        <li>Drag the basketballs one by one on to both sides of the scale.</li>
+        <li>
+          Click on the "S" button to check your selection. You can only click
+          this twice so choose wisely. The scale should move if you chose the
+          heaviest ball. CLick the scale button to rebalance the scale.
+        </li>
+        <li>
+          To discard a light ball, drag and drop into the bin. This step is
+          optional.
+        </li>
+        <li>
+          If you think you found the heaviest ball, drag it to the net and click
+          the "A" button to find out if you chose the heaviest basketball. NOTE:
+          This can only be done once.
+        </li>
       </ol>
       <p>You have 180s to complete the riddle. Click to start. Good Luck!</p>
     </div>
@@ -60,33 +77,42 @@
       VICTORY!
       <span class="overlay-text-small">Click To Restart the Game!</span>
     </div>
-<!-- Control panel on top of the page-->
+    <!-- Control panel on top of the page-->
     <div class="container control-panel-container">
       <div class="row">
         <div class="col-sm-auto col-md-6 control-panel">
-        <div class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="left" title="Scale: click to use the scale">
-          <button
-            type="button"
-            class="btn btn-border-pop scale-check"
+          <div
+            class="d-inline-block"
+            tabindex="0"
+            data-toggle="tooltip"
+            data-placement="left"
+            title="Scale: click to use the scale"
           >
-            S
-          </button>
-        </div>
+            <button type="button" class="btn btn-border-pop scale-check">
+              S
+            </button>
+          </div>
           <button
             type="button"
             class="btn btn-border-pop reset-scale"
             data-toggle="tooltip"
             title="Click to rebalance the scale"
           ></button>
-          <div class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="right" title="Answer:drag your answer to the basket and click here to check it">
-          <button
-            type="button"
-            class="btn btn-border-pop check-answer"
-            disabled="disabled"
-            id="checkAnswer"
+          <div
+            class="d-inline-block"
+            tabindex="0"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Answer:drag your answer to the basket and click here to check it"
           >
-            A
-          </button>
+            <button
+              type="button"
+              class="btn btn-border-pop check-answer"
+              disabled="disabled"
+              id="checkAnswer"
+            >
+              A
+            </button>
           </div>
         </div>
         <div class="col-sm-auto col-md-6 check-discard-container">
@@ -103,7 +129,7 @@
         </div>
       </div>
     </div>
-<!-- Scale sides and group of basketballs-->
+    <!-- Scale sides and group of basketballs-->
     <div class="container board">
       <div class="row">
         <div id="leftSide" class="col-4 col-sm-4 col-md-3 left-side"></div>
