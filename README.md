@@ -168,7 +168,7 @@ Same with the eventListeners, everytime that user restarted the game the S butto
 To resolve this issue I put all the eventListener into one fuction to make sure that they were called correctly. For the buttons clicks counts I set their values 
 into variable that will get reset everytime the game restart.
 
-Another bug founded during the testing was the Tooltip. When the S button was desabled and the user wasn't hovering on it anymore the tooltip stayed visible. In the
+Another bug founded during the testing was in the Tooltip. When the S button was desabled and the user wasn't hovering on it anymore the tooltip stayed visible. In the
 Boostrap documentation about the tooltip, in the section "Desable elements" they advice to wrap the element in a div or span and trigger the tooltip from it. This resolved 
 the bug. 
 
@@ -187,7 +187,7 @@ I clicked Master Branch which hosts the website on GitHub Pages.
 # Credits
 
 ## Content
-The inspiration came from a riddle that a resolved as a kid. (No copyright infringement intended, as this is for educational use only.)
+The inspiration came from a riddle that I resolved as a kid. (No copyright infringement intended, as this is for educational use only.)
 
 
 ## images
@@ -203,6 +203,7 @@ This searchs for images that are free to use. (No copyright infringement intende
 * [www.w3schools](https://www.w3schools.com/) - I refer to this page to refresh concepts of html, css and JavaScript as well as learn new ones.
 * [Stackoverflow](https://stackoverflow.com/) - I use this page to ask specific question about my code and to get help from the comunnity.
 * [SortableJS](https://github.com/SortableJS/sortablejs) I used this library to create the drag and drop animation.
+* [Google Fonts](https://fonts.google.com/) 
 * **Slack Code Institute Comunity**
 * **My Mentor at Code Institute - Guido Cecilio**
 
