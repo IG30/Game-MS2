@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
 
-/*The body will take 100% of the available height space */
 body {
   background-color: black;
 }
@@ -49,7 +48,7 @@ body {
   margin-left: 100px;
 }
 
-/* This Basketballs group and Scale sides*/
+/* Basketballs group and Scale sides*/
 
 .balls-container {
   resize: none;
@@ -126,7 +125,7 @@ img {
   border-radius: 50%;
 }
 
-/* This is the style for the overlays*/
+/* Style for the overlays*/
 
 ol {
   align-items: center;
@@ -173,7 +172,7 @@ li {
   color: black;
 }
 
-/*This is the style for the Control panel under the time. */
+/*Style for the Control panel under the time. */
 
 .control-panel-container {
   width: 100%;

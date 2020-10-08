@@ -168,11 +168,21 @@ Same with the eventListeners, everytime that user restarted the game the S butto
 To resolve this issue I put all the eventListener into one fuction to make sure that they were called correctly. For the buttons clicks counts I set their values 
 into variable that will get reset everytime the game restart.
 
+Another bug founded during the testing was the Tooltip. When the S button was desabled and the user wasn't hovering on it anymore the tooltip stayed visible. In the
+Boostrap documentation about the tooltip, in the section "Desable elements" they advice to wrap the element in a div or span and trigger the tooltip from it. This resolved 
+the bug. 
+
+
 The riddle has been tested in:
 
 * Chrome (desktop and mobile)
 * Firefox (desktop and mobile)
 * Safari (desktop and mobile)
+
+# Deployment
+
+This site is deployed directly from the master branch.I deployed it by going to my repository -> settings -> Github pages -> and in the dropdown
+I clicked Master Branch which hosts the website on GitHub Pages.
 
 # Credits
 
@@ -187,9 +197,9 @@ This searchs for images that are free to use. (No copyright infringement intende
 ## Acknowledgements
 
 * [Code insitute](https://courses.codeinstitute.net/).
-* [Web Dev Simplified](https://www.youtube.com/watch?v=28VfzEiJgy4&t=1553s) - From this tutorial I got the idea of the overlays and te structure of the riddle.
-* [PortEXE](https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=3008s) - This video helped me understand how to structure my script.js. How to create the countdown and stop clear the intervals.
-* [Scotch](https://scotch.io/ ) - From this page I learned how to shuffle the basketball and the div everytime the riddle started. Once I understand it I was able to modify the fuction to a simpler one.
+* [Web Dev Simplified](https://www.youtube.com/watch?v=28VfzEiJgy4&t=1553s) - From this tutorial I got the idea of the overlays and the structure of the riddle.
+* [PortEXE](https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=3008s) - This video helped me understand how to structure my script.js. How to create the countdown and clear the intervals.
+* [Scotch](https://scotch.io/ ) - From this page I learned how to shuffle the basketball everytime the riddle started. Once I understand it I was able to modify the fuction to a simpler one.
 * [www.w3schools](https://www.w3schools.com/) - I refer to this page to refresh concepts of html, css and JavaScript as well as learn new ones.
 * [Stackoverflow](https://stackoverflow.com/) - I use this page to ask specific question about my code and to get help from the comunnity.
 * [SortableJS](https://github.com/SortableJS/sortablejs) I used this library to create the drag and drop animation.

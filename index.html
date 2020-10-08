@@ -1,111 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Memory Game" />
-    <meta
-      name="keywords"
-      content="HTML,CSS,JavaScript,Developer,Resume,Codeinstitude"
-    />
-    <meta name="author" content="Ignacio Santana" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Riddle-Find-The-heavier-Ball</title>
-  </head>
-  <body>
-    <h1
-      class="page-title"
-      data-toggle="tooltip"
-      title="Click the title to start the game"
-    >
-      Find The Heavier Ball
-    </h1>
-    <div class="container">
-      <div class="row justify-content-around">
-        <div class="col-sm-auto scale-moves">
-          Scale: <span id="scale-moves"> 2 </span>
-        </div>
-        <div class="col-sm-auto game-info">
-          Time: <span id="time-remaining"> 180 </span>
-        </div>
-        <div class="col-sm-auto discarded-balls">
-          Bin: <span id="discarded-balls"> 0 </span>
-        </div>
-      </div>
-    </div>
-    <!--Overlays-->
-    <div id="start-overlay" class="overlay-text visible">
-      <h1>Find The Heavier Ball</h1>
-      <p>
-        There are nine identical basketballs and one is heavier than the rest.
-        Can you find the heaviest ball?
-      </p>
-      <p>Follow these steps:</p>
-      <ol>
-        <li>Drag the basketballs one by one on to both sides of the scale.</li>
-        <li>
-          Click on the "S" button to check your selection. You can only click
-          this twice so choose wisely. The scale should move if you chose the
-          heaviest ball. CLick the scale button to rebalance the scale.
-        </li>
-        <li>
-          To discard a light ball, drag and drop into the bin. This step is
-          optional.
-        </li>
-        <li>
-          If you think you found the heaviest ball, drag it to the net and click
-          the "A" button to find out if you chose the heaviest basketball. NOTE:
-          This can only be done once.
-        </li>
-      </ol>
-      <p>You have 180s to complete the riddle. Click to start. Good Luck!</p>
-    </div>
-    <div id="game-over-text" class="overlay-text">
-      GAME OVER!
-      <span class="overlay-text-small">Click To Restart the Game!</span>
-    </div>
-    <div id="victory-text" class="overlay-text">
-      VICTORY!
-      <span class="overlay-text-small">Click To Restart the Game!</span>
-    </div>
-    <!-- Control panel on top of the page-->
-    <div class="container control-panel-container">
-      <div class="row">
-        <div class="col-sm-auto col-md-6 control-panel">
-          <div
-            class="d-inline-block"
-            tabindex="0"
-            data-toggle="tooltip"
-            data-placement="left"
-            title="Scale: click to use the scale"
-          >
-            <button type="button" class="btn btn-border-pop scale-check">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Memory Game" />
+	<meta name="keywords" content="HTML,CSS,JavaScript,Developer,Resume,Codeinstitude" />
+	<meta name="author" content="Ignacio Santana" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<title>Riddle-Find-The-heavier-Ball</title>
+</head>
+
+<body>
+	<h1 class="page-title" data-toggle="tooltip" title="Click the title to start the game">
+		Find The Heavier Ball
+	</h1>
+	<div class="container">
+		<div class="row justify-content-around">
+			<div class="col-sm-auto scale-moves">
+				Scale: <span id="scale-moves"> 2 </span>
+			</div>
+			<div class="col-sm-auto game-info">
+				Time: <span id="time-remaining"> 180 </span>
+			</div>
+			<div class="col-sm-auto discarded-balls">
+				Bin: <span id="discarded-balls"> 0 </span>
+			</div>
+		</div>
+	</div>
+	<!--Overlays-->
+	<div id="start-overlay" class="overlay-text visible">
+		<h1>Find The Heavier Ball</h1>
+		<p>
+			There are nine identical basketballs and one is heavier than the rest.
+			Can you find the heaviest ball?
+		</p>
+		<p>Follow these steps:</p>
+		<ol>
+			<li>Drag the basketballs one by one on to both sides of the scale.</li>
+			<li>
+				Click on the "S" button to check your selection. You can only click
+				this twice so choose wisely. The scale should move if you chose the
+				heaviest ball. CLick the scale button to rebalance the scale.
+			</li>
+			<li>
+				To discard a light ball, drag and drop into the bin. This step is
+				optional.
+			</li>
+			<li>
+				If you think you found the heaviest ball, drag it to the net and click
+				the "A" button to find out if you chose the heaviest basketball. NOTE:
+				This can only be done once.
+			</li>
+		</ol>
+		<p>You have 180s to complete the riddle. Click to start. Good Luck!</p>
+	</div>
+	<div id="game-over-text" class="overlay-text">
+		GAME OVER!
+		<span class="overlay-text-small">Click To Restart the Game!</span>
+	</div>
+	<div id="victory-text" class="overlay-text">
+		VICTORY!
+		<span class="overlay-text-small">Click To Restart the Game!</span>
+	</div>
+	<!-- Control panel on top of the page-->
+	<div class="container control-panel-container">
+		<div class="row">
+			<div class="col-sm-auto col-md-6 control-panel">
+				<div class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="left"
+					title="Scale: click to use the scale">
+					<button type="button" class="btn btn-border-pop scale-check">
               S
             </button>
-          </div>
-          <button
+				</div>
+				<button
             type="button"
             class="btn btn-border-pop reset-scale"
             data-toggle="tooltip"
             title="Click to rebalance the scale"
           ></button>
-          <div
-            class="d-inline-block"
-            tabindex="0"
-            data-toggle="tooltip"
-            data-placement="right"
-            title="Answer:drag your answer to the basket and click here to check it"
-          >
-            <button
+				<div class="d-inline-block" tabindex="0" data-toggle="tooltip" data-placement="right"
+					title="Answer:drag your answer to the basket and click here to check it">
+					<button
               type="button"
               class="btn btn-border-pop check-answer"
               disabled="disabled"
@@ -113,76 +92,67 @@
             >
               A
             </button>
+				</div>
+			</div>
+			<div class="col-sm-auto col-md-6 check-discard-container">
+				<div id="basket" data-toggle="tooltip" title="Drag your answer here and click on the A to check it">
+				</div>
+				<div id="discarded" data-toggle="tooltip" title="(Optional) Drag the light balls here"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Scale sides and group of basketballs-->
+	<div class="container board">
+		<div class="row">
+			<div id="leftSide" class="col-4 col-sm-4 col-md-3 left-side"></div>
+			<div id="rightSide" class="col-4 col-sm-4 col-md-3 right-side"></div>
+			<div id="ballsGroup" class="col-12 col-sm-4 col-md-3 balls-container">
+				<div class="basketballs" data-weight="light">
+					<img src="assets/images/ball.png" alt="basketball" />
           </div>
-        </div>
-        <div class="col-sm-auto col-md-6 check-discard-container">
-          <div
-            id="basket"
-            data-toggle="tooltip"
-            title="Drag your answer here and click on the A to check it"
-          ></div>
-          <div
-            id="discarded"
-            data-toggle="tooltip"
-            title="(Optional) Drag the light balls here"
-          ></div>
-        </div>
-      </div>
-    </div>
-    <!-- Scale sides and group of basketballs-->
-    <div class="container board">
-      <div class="row">
-        <div id="leftSide" class="col-4 col-sm-4 col-md-3 left-side"></div>
-        <div id="rightSide" class="col-4 col-sm-4 col-md-3 right-side"></div>
-        <div id="ballsGroup" class="col-12 col-sm-4 col-md-3 balls-container">
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+					<div class="basketballs heavy" data-weight="heavy">
+						<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs heavy" data-weight="heavy">
-            <img src="assets/images/ball.png" alt="basketball" />
+						<div class="basketballs" data-weight="light">
+							<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+							<div class="basketballs" data-weight="light">
+								<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+								<div class="basketballs" data-weight="light">
+									<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+									<div class="basketballs" data-weight="light">
+										<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+										<div class="basketballs" data-weight="light">
+											<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+											<div class="basketballs" data-weight="light">
+												<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
+												<div class="basketballs" data-weight="light">
+													<img src="assets/images/ball.png" alt="basketball" />
           </div>
-          <div class="basketballs" data-weight="light">
-            <img src="assets/images/ball.png" alt="basketball" />
-          </div>
-        </div>
-      </div>
-    </div>
+												</div>
+											</div>
+										</div>
 
-    <!-- Sortable.js -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
-    <script src="assets/js/script.js" async></script>
-  </body>
+										<!-- Sortable.js -->
+										<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+											integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+											crossorigin="anonymous"></script>
+										<script
+											src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+											integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+											crossorigin="anonymous"></script>
+										<script
+											src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+											integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+											crossorigin="anonymous"></script>
+										<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js">
+										</script>
+										<script src="assets/js/script.js" async></script>
+</body>
+
 </html>

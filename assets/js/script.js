@@ -269,7 +269,7 @@ class findTheHeavierBall {
 
 function ready() {
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
-  let game = new findTheHeavierBal(180, basketballs);
+  let game = new findTheHeavierBall(180, basketballs);
 
 // Tooltip implemented from Boostrap. 
   $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
