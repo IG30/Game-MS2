@@ -80,6 +80,12 @@ The group of basketballs are draggable and they can be place on the scale, the b
 
 ![Basketballs](assets/images/groupOfBalls.PNG)
 
+## Features left to implement
+
+* I would like to add some sounds to different element in the riddle. Victory, game over, pick up a ball and drop it.
+* Improve the quality of the desing and images.
+* Automatize the scale so the user don't need to click a button to unbalce or rebalance the scale.
+
 # Manual Testing
 
 1. Scenario
@@ -157,8 +163,37 @@ The group of basketballs are draggable and they can be place on the scale, the b
 
 Testing the game help me find out that when the user restarted the game after clicking on the title or the game over and victory overlay the time was going twice as fast.
 This was happening because of the way that the script.js was written. The event listeners and the time count down were call multiple times. This meant that after restarting the game
-the time was going twice as fast. One time for the first round and another time for the second round. So everytime that the user click to restart the time was going fater and faster.
+the time was going twice as fast. One time for the first round and another time for the second round. So everytime that the user click to restart the riddle the time was going faster and faster.
 Same with the eventListeners, everytime that user restarted the game the S button was already disable because for the riddle the button was already used twice.
-To resolve this issue I put all the eventListener into the one fuction to make sure that they were called correctly. For the buttons clicks counts I set their values 
+To resolve this issue I put all the eventListener into one fuction to make sure that they were called correctly. For the buttons clicks counts I set their values 
 into variable that will get reset everytime the game restart.
+
+The riddle has been tested in:
+
+* Chrome (desktop and mobile)
+* Firefox (desktop and mobile)
+* Safari (desktop and mobile)
+
+# Credits
+
+## Content
+The inspiration came from a riddle that a resolved as a kid. (No copyright infringement intended, as this is for educational use only.)
+
+
+## images
+All the images in the game where found doing a search on google >> Settings >> Advance search >> Usage rights >> Creative commons licenses.
+This searchs for images that are free to use. (No copyright infringement intended, as this is for educational use only.)
+
+## Acknowledgements
+
+* [Code insitute](https://courses.codeinstitute.net/).
+* [Web Dev Simplified](https://www.youtube.com/watch?v=28VfzEiJgy4&t=1553s) - From this tutorial I got the idea of the overlays and te structure of the riddle.
+* [PortEXE](https://www.youtube.com/watch?v=3uuQ3g92oPQ&t=3008s) - This video helped me understand how to structure my script.js. How to create the countdown and stop clear the intervals.
+* [Scotch](https://scotch.io/ ) - From this page I learned how to shuffle the basketball and the div everytime the riddle started. Once I understand it I was able to modify the fuction to a simpler one.
+* [www.w3schools](https://www.w3schools.com/) - I refer to this page to refresh concepts of html, css and JavaScript as well as learn new ones.
+* [Stackoverflow](https://stackoverflow.com/) - I use this page to ask specific question about my code and to get help from the comunnity.
+* [SortableJS](https://github.com/SortableJS/sortablejs) I used this library to create the drag and drop animation.
+* **Slack Code Institute Comunity**
+* **My Mentor at Code Institute - Guido Cecilio**
+
 

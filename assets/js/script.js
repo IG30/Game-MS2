@@ -1,6 +1,6 @@
 const TOTAL_TIME_MS = 500;
 
-class nameOfTheGame {
+class findTheHeavierBall {
   constructor(totalTime, basketballs) {
     this.timer = document.getElementById("time-remaining");
     this.checkAnswerBtn = document.getElementById("checkAnswer");
@@ -16,6 +16,7 @@ class nameOfTheGame {
     this.ballsInBin = 0;
     this.scaleUse = 2;
 
+// This create the drag and drop animation. It is implemented using SortableJs (more info in the README.md).
     new Sortable(leftSide, {
         group: "shared",
         animation: 500,
@@ -79,8 +80,10 @@ class nameOfTheGame {
     this.updateScaleCheckButton();
   }
 
+
+//Control the shuffled of the balls and position of the div everytime the game restart.
   shufflebasketballs() {
-    // Fisher-Yates (aka Knuth) Shuffle
+    // Fisher-Yates (aka Knuth) Shuffle. This from taken and modify from Scotch (More infor in the README.md).
     let currentIndex = this.basketballsArray.length;
     let temporaryValue;
     let randomIndex;
@@ -94,7 +97,7 @@ class nameOfTheGame {
     }
     return balls;
   }
-  // group of all balls in game
+  // group of all balls in riddle
 
   shufflegroup() {
     const groupBalls = document.querySelector(".balls-container");
@@ -115,7 +118,7 @@ class nameOfTheGame {
     }, 1000);
   }
 
-  // overlays for game over and victory
+  // overlays for game over and victory. I learn the idea and implemantation from Web Dev Simplified and PortEXE video. (More infor in the README.md)
   gameOver() {
     document.getElementById("game-over-text").classList.add("visible");
   }
@@ -129,6 +132,8 @@ class nameOfTheGame {
     document.getElementById("victory-text").classList.remove("visible");
   }
 
+
+// Controls the S button.
   onScaleCheckButton() {
     this.scaleUse--;
     this.renderScaleUsesLabel();
@@ -139,7 +144,7 @@ class nameOfTheGame {
     }
     this.updateScaleCheckButton();
   }
-
+//Control the A button
   onClickBasketButton() {
     const basket = document.querySelector("#basket");
     const basketDivs = Array.from(basket.children);
@@ -150,6 +155,7 @@ class nameOfTheGame {
     }
   }
 
+//This fuction calls the majority of the EventListeners to make sure that when the game restart the get call just once.
   addEventListener() {
     const gameOverOverlay = document.getElementById("game-over-text");
     gameOverOverlay.addEventListener("click", () => {
@@ -185,7 +191,7 @@ class nameOfTheGame {
 
   //Check for the content in the scales.
 
-  //Check for the data attribiute in the basketballs
+  //Check for the data attribiute in the basketballs when the are drop on the sides of the scale and after clicking the S button.
   checkForHeavy() {
     const leftSide = document.querySelector(".left-side");
     const leftSideDivs = Array.from(leftSide.children);
@@ -205,11 +211,13 @@ class nameOfTheGame {
     });
   }
 
+//Rebalance the Scale
   resetScale() {
     document.querySelector(".left-side").classList.remove("heavier");
     document.querySelector(".right-side").classList.remove("heavier");
   }
 
+// Enable or disable the A button
   updateCheckAnswerButton() {
     if (this.ballsInBasket == 1) {
       this.checkAnswerBtn.removeAttribute("disabled");
@@ -218,6 +226,7 @@ class nameOfTheGame {
     }
   }
 
+// Disable the S button after the scale has been used twice
   updateScaleCheckButton() {
     if (this.scaleUse === 0) {
       this.scaleCheckBtn.setAttribute("disabled", "disabled");
@@ -225,7 +234,7 @@ class nameOfTheGame {
       this.scaleCheckBtn.removeAttribute("disabled");
     }
   }
-
+// Check for the amount of balls dropped onto the basket net
   addBallToBasket() {
     this.ballsInBasket++;
     this.updateCheckAnswerButton();
@@ -237,7 +246,7 @@ class nameOfTheGame {
       this.updateCheckAnswerButton();
     }
   }
-
+// Check for the amount of balls dropped onto the bin
   addOnBin() {
     this.ballsInBin++;
     this.renderBinLabel();
@@ -248,6 +257,7 @@ class nameOfTheGame {
     this.renderBinLabel();
   }
 
+// Control the values to indicate the user how many move left with the scale and how many balls are inside the bin.
   renderBinLabel() {
     this.bin.innerHTML = this.ballsInBin;
   }
@@ -256,15 +266,16 @@ class nameOfTheGame {
     this.scaleMoves.innerHTML = this.scaleUse;
   }
 }
-// close the objecy
 
 function ready() {
   let basketballs = Array.from(document.getElementsByClassName("basketballs"));
-  let game = new nameOfTheGame(180, basketballs);
-  
+  let game = new findTheHeavierBal(180, basketballs);
+
+// Tooltip implemented from Boostrap. 
   $('[data-toggle="tooltip"]').tooltip({ trigger: "hover" });
 }
 
+// This event waits for the DOM content to be loaded before calling the ready Fuction.
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", ready());
 } else {
